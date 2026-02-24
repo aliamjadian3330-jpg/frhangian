@@ -1,0 +1,3173 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="سامانه هوشمند تربیت بدنی دانشجومعلمان – با محوریت کشتی | دانشگاه فرهنگیان" />
+  <title>سامانه هوشمند تربیت بدنی | دانشگاه فرهنگیان</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ======================== LOADER ======================== -->
+<div class="page-loader" id="pageLoader">
+  <div class="loader-inner">
+    <div class="loader-logo">🤼</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-text">در حال بارگذاری سامانه...</div>
+  </div>
+</div>
+
+<!-- ======================== CURSOR ======================== -->
+<div class="custom-cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- ======================== NAVBAR ======================== -->
+<header class="header" id="header">
+  <nav class="navbar">
+    <div class="nav-brand">
+      <div class="brand-icon">🤼</div>
+      <div class="brand-text">
+        <span class="brand-main">سامانه کشتی</span>
+        <span class="brand-sub">دانشگاه فرهنگیان</span>
+      </div>
+    </div>
+
+    <ul class="nav-menu" id="navMenu" role="menubar">
+      <li role="none"><a href="#home"     role="menuitem" class="nav-item active" data-section="home">خانه</a></li>
+      <li role="none"><a href="#training" role="menuitem" class="nav-item" data-section="training">تمرین</a></li>
+      <li role="none"><a href="#tools"    role="menuitem" class="nav-item" data-section="tools">ابزارها</a></li>
+      <li role="none"><a href="#teacher"  role="menuitem" class="nav-item" data-section="teacher">پنل معلم</a></li>
+      <li role="none"><a href="#resources"role="menuitem" class="nav-item" data-section="resources">منابع</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Dark Mode Toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم" title="تغییر به حالت روشن/تاریک">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="باز کردن منو" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ======================== MAIN ======================== -->
+<main>
+
+  <!-- ===== HERO / HOME ===== -->
+  <section class="section hero-section" id="home">
+    <!-- Animated Background Grid -->
+    <div class="hero-grid-bg" aria-hidden="true">
+      <div class="grid-line" style="--delay:0s"></div>
+      <div class="grid-line" style="--delay:0.5s"></div>
+      <div class="grid-line" style="--delay:1s"></div>
+      <div class="grid-line" style="--delay:1.5s"></div>
+      <div class="grid-line" style="--delay:2s"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles" aria-hidden="true" id="particles"></div>
+
+    <div class="hero-content">
+      <!-- Badge -->
+      <div class="hero-badge reveal" data-delay="0">
+        <span class="badge-dot"></span>
+        جشنواره رسانه‌های فرهنگی ـ ورزشی
+      </div>
+<div id="welcomeOverlay" class="overlay">
+  <div class="welcome-box">
+    <h1>👋 خوش آمدید</h1>
+    <p>  این سایت توسط علیرضا امجدیان طراحی شده است از حضور شما در سایت ما خوشحالیم 🌿</p>
+    <button onclick="closeWelcome()">ورود به سایت</button>
+  </div>
+</div>
+
+<style>
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.4s ease;
+}
+
+.welcome-box {
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  border-left: 8px solid #28a745;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: slideUp 0.5s ease;
+}
+
+.welcome-box h1 {
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+
+.welcome-box p {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.welcome-box button {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.welcome-box button:hover {
+  background: #218838;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+</style>
+
+<script>
+function closeWelcome() {
+  document.getElementById("welcomeOverlay").style.display = "none";
+}
+</script>
+      <!-- Headline -->
+      <h1 class="hero-headline reveal" data-delay="200">
+        <span class="headline-line">سامانه هوشمند</span>
+        <span class="headline-line accent">تربیت بدنی</span>
+        <span class="headline-line">دانشجومعلمان</span>
+      </h1>
+
+      <p class="hero-sub reveal" data-delay="400">
+        با محوریت <strong>کشتی</strong> به عنوان ابزار تربیتی در مدرسه
+      </p>
+
+      <!-- Stats Row -->
+      <div class="hero-stats reveal" data-delay="600">
+        <div class="stat-block">
+          <span class="stat-val" data-count="3000">۰</span>
+          <span class="stat-label">سال تاریخ کشتی</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-block">
+          <span class="stat-val" data-count="180">۰</span>
+          <span class="stat-label">کشور عضو فدراسیون</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-block">
+          <span class="stat-val" data-count="47">۰</span>
+          <span class="stat-label">استان ایران</span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hero-ctas reveal" data-delay="800">
+        <a href="#training" class="btn btn-primary">
+          <span>شروع تمرین</span>
+          <span class="btn-icon">←</span>
+        </a>
+        <a href="index.html" target="_blank" class="btn btn-primary">
+          <span>سایت اصلی</span>
+          <span class="btn-icon"></span>
+        </a>
+        <a href="#tools" class="btn btn-ghost">ابزارهای هوشمند</a>
+      </div>
+    </div>
+
+    <!-- Decorative element -->
+    <div class="hero-deco" aria-hidden="true">
+      <div class="deco-ring r1"></div>
+      <div class="deco-ring r2"></div>
+      <div class="deco-ring r3"></div>
+      <div class="deco-mat">
+        <div class="mat-circle outer"></div>
+        <div class="mat-circle middle"></div>
+        <div class="mat-circle inner"></div>
+        <div class="mat-center">🤼</div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator reveal" data-delay="1200">
+      <div class="scroll-line"></div>
+      <span>اسکرول کنید</span>
+    </div>
+  </section>
+
+  <!-- ===== WHY WRESTLING SECTION ===== -->
+  <section class="section values-section" id="values">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="section-tag">چرا کشتی؟</span>
+        <h2>کشتی — مکتب تربیت</h2>
+        <p>بیش از یک ورزش؛ مسیری برای پرورش شخصیت دانش‌آموز</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card reveal" data-delay="0">
+          <div class="value-num">۰۱</div>
+          <div class="value-icon-wrap"><span class="value-icon">🎯</span></div>
+          <h3>نظم و انضباط</h3>
+          <p>تمرین منظم کشتی ساختار ذهنی ایجاد می‌کند. دانش‌آموزی که برنامه تمرین دارد، در کلاس نیز سازمان‌یافته‌تر عمل می‌کند.</p>
+        </div>
+        <div class="value-card reveal" data-delay="100">
+          <div class="value-num">۰۲</div>
+          <div class="value-icon-wrap"><span class="value-icon">🤝</span></div>
+          <h3>احترام متقابل</h3>
+          <p>«تعظیم» قبل از هر مسابقه نماد احترام است. این آئین به دانش‌آموزان می‌آموزد که با حریف، معلم و جامعه محترمانه رفتار کنند.</p>
+        </div>
+        <div class="value-card reveal" data-delay="200">
+          <div class="value-num">۰۳</div>
+          <div class="value-icon-wrap"><span class="value-icon">💪</span></div>
+          <h3>مسئولیت‌پذیری</h3>
+          <p>در کشتی نمی‌توان شکست را به دیگری نسبت داد. این درس مستقیماً پذیرش مسئولیت یادگیری را در دانش‌آموز تقویت می‌کند.</p>
+        </div>
+        <div class="value-card reveal" data-delay="300">
+          <div class="value-num">۰۴</div>
+          <div class="value-icon-wrap"><span class="value-icon">🧠</span></div>
+          <h3>تقویت حافظه</h3>
+          <p>پژوهش‌ها نشان می‌دهد ورزش منظم حجم هیپوکامپ را افزایش می‌دهد — ناحیه‌ای از مغز که مستقیماً در حافظه و یادگیری نقش دارد.</p>
+        </div>
+        <div class="value-card reveal" data-delay="400">
+          <div class="value-num">۰۵</div>
+          <div class="value-icon-wrap"><span class="value-icon">🌱</span></div>
+          <h3>اعتمادبه‌نفس</h3>
+          <p>هر تکنیک آموخته شده، هر پیروزی کسب شده، پله‌ای است برای ساختن اعتمادبه‌نفس پایدار که در تمام زندگی همراه می‌ماند.</p>
+        </div>
+        <div class="value-card reveal" data-delay="500">
+          <div class="value-num">۰۶</div>
+          <div class="value-icon-wrap"><span class="value-icon">👨‍🏫</span></div>
+          <h3>الگوی معلم</h3>
+          <p>معلمی که کشتی می‌داند، با زبان بدن و تجربه شخصی ارزش‌های تربیتی را منتقل می‌کند — نه فقط با کلمات.</p>
+        </div>
+      </div>
+
+      <!-- Pull Quote -->
+      <div class="pull-quote reveal" data-delay="200">
+        <div class="pq-mark">"</div>
+        <blockquote>
+          کشتی قدیمی‌ترین ورزش المپیک است. این ورزش بر سه رکن بنا شده: <strong>قدرت ذهن</strong>، <strong>احترام به حریف</strong> و <strong>عدالت در رقابت</strong> — دقیقاً همان ارزش‌هایی که مدرسه نیاز دارد.
+        </blockquote>
+        <cite>— فلسفه کشتی در آموزش و پرورش</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRAINING SECTION ===== -->
+  <section class="section training-section" id="training">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="section-tag">برنامه تمرین مدرسه‌ای</span>
+        <h2>تمرین‌های ساده و ایمن</h2>
+        <p>بدون نیاز به تجهیزات خاص — قابل اجرا در هر مدرسه‌ای</p>
+      </div>
+
+      <!-- Grade Level Tabs -->
+      <div class="grade-tabs reveal" role="tablist" aria-label="مقطع تحصیلی">
+        <button class="grade-tab active" role="tab" data-grade="primary" aria-selected="true">
+          <span class="tab-icon">🏫</span>
+          <span>ابتدایی</span>
+          <span class="tab-sub">پایه ۱–۶</span>
+        </button>
+        <button class="grade-tab" role="tab" data-grade="middle" aria-selected="false">
+          <span class="tab-icon">🏃</span>
+          <span>متوسطه اول</span>
+          <span class="tab-sub">پایه ۷–۹</span>
+        </button>
+        <button class="grade-tab" role="tab" data-grade="high" aria-selected="false">
+          <span class="tab-icon">🏆</span>
+          <span>متوسطه دوم</span>
+          <span class="tab-sub">پایه ۱۰–۱۲</span>
+        </button>
+      </div>
+
+      <!-- Training Panels -->
+      <div class="training-panel active" id="panel-primary" role="tabpanel">
+        <div class="phase-grid">
+          <div class="phase-card reveal" data-phase="warmup">
+            <div class="phase-header">
+              <span class="phase-badge warmup">گرم‌کردن</span>
+              <span class="phase-time">۱۰ دقیقه</span>
+            </div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>دویدن در جا</strong><span>۳ دقیقه — آرام و ریتمیک</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>حرکات دست و شانه</strong><span>۲ دقیقه — دایره‌ای</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>نشست و برخاست آرام</strong><span>۱۰ بار — کنترل‌شده</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>بازی تگ‌زدن گروهی</strong><span>۵ دقیقه — تشکیل جفت</span></div></li>
+            </ul>
+          </div>
+          <div class="phase-card reveal" data-phase="main" data-delay="100">
+            <div class="phase-header">
+              <span class="phase-badge main">بخش اصلی</span>
+              <span class="phase-time">۲۵ دقیقه</span>
+            </div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>حالت آماده‌باش</strong><span>ایستادن پایدار با زانو خم</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>جابجایی ریتمیک</strong><span>۴ طرف — بدون برخورد</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>سقوط ایمن</strong><span>روی تشک یا سطح نرم</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>بازی گرفتن کمربند</strong><span>بدون تماس خطرناک</span></div></li>
+            </ul>
+          </div>
+          <div class="phase-card reveal" data-phase="cool" data-delay="200">
+            <div class="phase-header">
+              <span class="phase-badge cool">سردکردن</span>
+              <span class="phase-time">۱۰ دقیقه</span>
+            </div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>راه رفتن آرام</strong><span>۲ دقیقه — تنفس عمیق</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>کشش عضلات پا</strong><span>هر طرف ۳۰ ثانیه</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>کشش کمر و گردن</strong><span>آرام، بدون فشار</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>دایره جمع‌بندی</strong><span>گفتگو درباره تمرین</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="training-panel" id="panel-middle" role="tabpanel">
+        <div class="phase-grid">
+          <div class="phase-card">
+            <div class="phase-header"><span class="phase-badge warmup">گرم‌کردن</span><span class="phase-time">۱۲ دقیقه</span></div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>دو ریتمیک</strong><span>۵ دقیقه با تغییر سرعت</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>حرکات ترکیبی</strong><span>جست، دو دست، لنگر</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>اسکوات دینامیک</strong><span>۱۵ بار کنترل‌شده</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>پل مقدماتی</strong><span>آرام روی پشت — گردن محافظت</span></div></li>
+            </ul>
+          </div>
+          <div class="phase-card">
+            <div class="phase-header"><span class="phase-badge main">بخش اصلی</span><span class="phase-time">۳۰ دقیقه</span></div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>تکنیک گرفتن دست</strong><span>جفتی — بدون پرتاب</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>حرکت در حالت کشتی</strong><span>دو به دو — مانور</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>درگیری کنترل‌شده</strong><span>فقط گرفتن — روی تشک</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>تمرین اصول دفاعی</strong><span>کاهش تماس خطرناک</span></div></li>
+            </ul>
+          </div>
+          <div class="phase-card">
+            <div class="phase-header"><span class="phase-badge cool">سردکردن</span><span class="phase-time">۸ دقیقه</span></div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>یوگای ساده</strong><span>حرکت کودک، مثلث</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>کشش کامل بدن</strong><span>از سر تا پا</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>تنفس باکسی</strong><span>۴-۴-۴-۴ دم/نگه/بازدم/نگه</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>بازخورد معلم</strong><span>نکات مثبت جلسه</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="training-panel" id="panel-high" role="tabpanel">
+        <div class="phase-grid">
+          <div class="phase-card">
+            <div class="phase-header"><span class="phase-badge warmup">گرم‌کردن</span><span class="phase-time">۱۵ دقیقه</span></div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>دو مقاومتی</strong><span>۷ دقیقه با شدت بالا</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>برپی ترکیبی</strong><span>۳ ست ۱۰ تایی</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>پل کشتی پیشرفته</strong><span>با محافظت کامل گردن</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>شنا سوئدی</strong><span>۳ ست ۱۵ تایی</span></div></li>
+            </ul>
+          </div>
+          <div class="phase-card">
+            <div class="phase-header"><span class="phase-badge main">بخش اصلی</span><span class="phase-time">۳۵ دقیقه</span></div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>اسپارینگ تاکتیکی</strong><span>۲ دقیقه × ۵ راند</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>تکنیک‌های پایه کشتی</strong><span>پرتاب ساده، اورفال</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>موقعیت‌های خاص</strong><span>اصلاح اشتباهات فنی</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>قضاوت آموزشی</strong><span>نقش‌بازی داور</span></div></li>
+            </ul>
+          </div>
+          <div class="phase-card">
+            <div class="phase-header"><span class="phase-badge cool">سردکردن</span><span class="phase-time">۱۰ دقیقه</span></div>
+            <ul class="exercise-list">
+              <li><span class="ex-icon">▶</span><div><strong>سرد کردن هوازی</strong><span>۳ دقیقه دویدن سبک</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>کشش عمیق</strong><span>هر گروه عضلانی ۴۵ ثانیه</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>مدیتیشن ورزشی</strong><span>تمرکز ذهنی ۳ دقیقه</span></div></li>
+              <li><span class="ex-icon">▶</span><div><strong>ثبت جلسه</strong><span>هر دانش‌آموز یک نکته یاد گرفته</span></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOOLS SECTION ===== -->
+  <section class="section tools-section" id="tools">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="section-tag">ابزارهای تعاملی</span>
+        <h2>ابزارهای هوشمند</h2>
+        <p>نتایج شما به صورت خودکار ذخیره می‌شود</p>
+      </div>
+
+      <!-- User Profile Bar -->
+      <div class="profile-bar reveal">
+        <div class="profile-avatar" id="profileAvatar">?</div>
+        <div class="profile-info">
+          <input class="profile-name-input" id="profileName" type="text" placeholder="نام خود را وارد کنید..." maxlength="30" />
+          <div class="profile-stats-mini" id="profileStatsMini">
+            <span id="psBmi">BMI: —</span>
+            <span id="psScore">نمره آزمون: —</span>
+            <span id="psWorkouts">جلسات تمرین: <span id="psWorkoutCount">۰</span></span>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="clearDataBtn">پاک کردن داده‌ها</button>
+      </div>
+
+      <!-- Tools Grid -->
+      <div class="tools-master-grid">
+
+        <!-- ── BMI Calculator ── -->
+        <div class="tool-widget reveal" id="widget-bmi">
+          <div class="widget-head">
+            <div class="widget-icon-wrap bmi-color"><span>📊</span></div>
+            <div>
+              <h3>محاسبه‌گر BMI</h3>
+              <p>شاخص توده بدنی</p>
+            </div>
+            <div class="widget-saved-badge" id="bmiSavedBadge" style="display:none">✓ ذخیره شد</div>
+          </div>
+          <div class="widget-body">
+            <div class="bmi-inputs">
+              <div class="field-group">
+                <label for="bmiHeight">قد (cm)</label>
+                <input type="number" id="bmiHeight" placeholder="۱۷۵" min="100" max="250" />
+              </div>
+              <div class="field-group">
+                <label for="bmiWeight">وزن (kg)</label>
+                <input type="number" id="bmiWeight" placeholder="۷۰" min="30" max="200" />
+              </div>
+              <div class="field-group">
+                <label for="bmiAge">سن</label>
+                <input type="number" id="bmiAge" placeholder="۲۱" min="10" max="80" />
+              </div>
+            </div>
+            <button class="btn btn-primary btn-full" id="bmiCalcBtn">محاسبه کن</button>
+            <div class="bmi-result" id="bmiResult" style="display:none">
+              <div class="bmi-gauge">
+                <svg viewBox="0 0 200 120" class="gauge-svg">
+                  <defs>
+                    <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%"   stop-color="#3b82f6"/>
+                      <stop offset="30%"  stop-color="#22c55e"/>
+                      <stop offset="60%"  stop-color="#f59e0b"/>
+                      <stop offset="100%" stop-color="#ef4444"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M 10 110 A 90 90 0 0 1 190 110" fill="none" stroke="url(#gaugeGrad)" stroke-width="12" stroke-linecap="round"/>
+                  <line id="gaugeNeedle" x1="100" y1="110" x2="100" y2="30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="100" cy="110" r="5" fill="white"/>
+                </svg>
+                <div class="bmi-value-display">
+                  <span id="bmiValueText">—</span>
+                  <small>BMI</small>
+                </div>
+              </div>
+              <div class="bmi-category" id="bmiCategory"></div>
+              <div class="bmi-advice" id="bmiAdvice"></div>
+              <div class="bmi-range-bar">
+                <div class="range-segment" style="background:#3b82f6;width:23%"><span>کم‌وزن</span></div>
+                <div class="range-segment" style="background:#22c55e;width:19%"><span>ایده‌آل</span></div>
+                <div class="range-segment" style="background:#f59e0b;width:19%"><span>اضافه‌وزن</span></div>
+                <div class="range-segment" style="background:#ef4444;width:39%"><span>چاقی</span></div>
+                <div class="range-marker" id="rangeMarker"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Timer ── -->
+        <div class="tool-widget reveal" data-delay="100" id="widget-timer">
+          <div class="widget-head">
+            <div class="widget-icon-wrap timer-color"><span>⏱</span></div>
+            <div>
+              <h3>تایمر راند کشتی</h3>
+              <p>۲ دقیقه تمرین + ۳۰ ثانیه استراحت</p>
+            </div>
+          </div>
+          <div class="widget-body timer-body">
+            <!-- Big Timer Display -->
+            <div class="timer-stage">
+              <div class="timer-arc-wrap">
+                <svg class="timer-arc" viewBox="0 0 200 200">
+                  <circle cx="100" cy="100" r="88" class="arc-track"/>
+                  <circle cx="100" cy="100" r="88" class="arc-fill" id="arcFill"/>
+                </svg>
+                <div class="timer-center">
+                  <div class="timer-phase-label" id="timerPhaseLabel">آماده</div>
+                  <div class="timer-digits" id="timerDigits">۲:۰۰</div>
+                  <div class="timer-round-info">راند <span id="timerRound">۱</span> از <span id="timerTotal">۵</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="timer-settings">
+              <div class="field-group">
+                <label>تعداد راندها</label>
+                <div class="num-stepper">
+                  <button class="stepper-btn" id="roundMinus">−</button>
+                  <span id="roundDisplay">۵</span>
+                  <button class="stepper-btn" id="roundPlus">+</button>
+                </div>
+              </div>
+              <div class="field-group">
+                <label>زمان تمرین (ثانیه)</label>
+                <input type="number" id="workTimeInput" value="120" min="30" max="300" />
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="timer-controls">
+              <button class="btn btn-primary" id="timerPlayBtn" onclick="TimerModule.toggle()">شروع</button>
+              <button class="btn btn-ghost" onclick="TimerModule.reset()">ریست</button>
+              <button class="btn btn-ghost" id="timerLogBtn" onclick="TimerModule.logSession()">ثبت جلسه</button>
+            </div>
+            <div class="timer-log" id="timerLog"></div>
+          </div>
+        </div>
+
+        <!-- ── Schedule Generator ── -->
+        <div class="tool-widget wide reveal" data-delay="50" id="widget-schedule">
+          <div class="widget-head">
+            <div class="widget-icon-wrap sched-color"><span>📅</span></div>
+            <div>
+              <h3>تولیدکننده برنامه هفتگی</h3>
+              <p>برنامه شخصی‌سازی شده بر اساس سطح و هدف</p>
+            </div>
+            <div class="widget-saved-badge" id="schedSavedBadge" style="display:none">✓ ذخیره شد</div>
+          </div>
+          <div class="widget-body">
+            <div class="sched-inputs">
+              <div class="field-group">
+                <label>سطح مهارت</label>
+                <select id="schedLevel">
+                  <option value="beginner">مبتدی</option>
+                  <option value="intermediate">متوسط</option>
+                  <option value="advanced">پیشرفته</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label>روزهای تمرین</label>
+                <select id="schedDays">
+                  <option value="3">۳ روز</option>
+                  <option value="4">۴ روز</option>
+                  <option value="5">۵ روز</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label>هدف اصلی</label>
+                <select id="schedGoal">
+                  <option value="fitness">آمادگی عمومی</option>
+                  <option value="technique">تکنیک کشتی</option>
+                  <option value="competition">آمادگی رقابتی</option>
+                </select>
+              </div>
+              <button class="btn btn-primary" onclick="ScheduleModule.generate()">تولید برنامه</button>
+            </div>
+            <div id="schedOutput" class="sched-output"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUIZ SECTION ===== -->
+  <section class="section quiz-section" id="quiz-area">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="section-tag">آزمون</span>
+        <h2>آزمون قوانین کشتی</h2>
+        <p>دانش خود را بسنجید — نتیجه ذخیره می‌شود</p>
+      </div>
+
+      <div class="quiz-arena reveal">
+        <div class="quiz-topbar">
+          <div class="quiz-progress-wrap">
+            <div class="quiz-progress-bar">
+              <div class="quiz-progress-fill" id="quizProgressFill"></div>
+            </div>
+            <span class="quiz-progress-text" id="quizProgressText">سوال ۱ از ۱۰</span>
+          </div>
+          <div class="quiz-score-live">
+            نمره: <span id="quizScoreLive">۰</span>
+          </div>
+        </div>
+
+        <div id="quizBody"></div>
+
+        <div class="quiz-nav">
+          <button class="btn btn-ghost" id="quizNextBtn" onclick="QuizModule.next()" style="display:none">سوال بعدی</button>
+          <button class="btn btn-primary" id="quizSubmitBtn" onclick="QuizModule.finish()" style="display:none">نمایش نتیجه</button>
+          <button class="btn btn-primary" id="quizRestartBtn" onclick="QuizModule.restart()" style="display:none">شروع مجدد</button>
+        </div>
+
+        <div class="quiz-result-panel" id="quizResultPanel" style="display:none"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEACHER PANEL ===== -->
+  <section class="section teacher-section" id="teacher">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="section-tag">پنل معلم آینده</span>
+        <h2>راهنمای حرفه‌ای معلم</h2>
+        <p>ابزارهای عملی برای مدیریت کلاس تربیت بدنی</p>
+      </div>
+
+      <div class="teacher-grid">
+
+        <!-- Class Management -->
+        <div class="teacher-card reveal">
+          <div class="tc-header">
+            <span class="tc-icon">📋</span>
+            <h3>مدیریت کلاس</h3>
+          </div>
+          <ul class="tip-list">
+            <li>قبل از جلسه مسیر ورود و خروج دانش‌آموزان را مشخص کنید</li>
+            <li>گروه‌بندی را بر اساس وزن و قد نه سن انجام دهید</li>
+            <li>از نظام امتیازدهی مثبت برای تقویت رفتار مطلوب استفاده کنید</li>
+            <li>هر جلسه یک «قانون طلایی» جدید معرفی کنید</li>
+            <li>دانش‌آموزان پیشرفته را به عنوان دستیار استفاده کنید</li>
+            <li>شروع و پایان جلسه با تعظیم رسمی باشد</li>
+          </ul>
+        </div>
+
+        <!-- Safety Guide -->
+        <div class="teacher-card reveal" data-delay="100">
+          <div class="tc-header">
+            <span class="tc-icon">🛡️</span>
+            <h3>نکات ایمنی</h3>
+          </div>
+          <ul class="tip-list safety">
+            <li>تشک‌ها را قبل از هر جلسه از نظر پارگی و لغزندگی بررسی کنید</li>
+            <li>هیچ تکنیکی بدون گرم‌کردن کامل آموزش داده نشود</li>
+            <li>تمرین پرتاب فقط با جفت هم‌وزن و هم‌قد انجام شود</li>
+            <li>ناخن‌ها باید کوتاه و جواهرات درآورده شده باشد</li>
+            <li>در صورت هر گونه درد، تمرین فوری متوقف شود</li>
+            <li>جعبه کمک‌های اولیه همیشه در دسترس باشد</li>
+          </ul>
+        </div>
+
+        <!-- Checklist -->
+        <div class="teacher-card reveal wide-card" data-delay="200" id="checklistCard">
+          <div class="tc-header">
+            <span class="tc-icon">✅</span>
+            <h3>چک‌لیست جلسه ورزشی</h3>
+            <button class="btn btn-ghost btn-sm" onclick="ChecklistModule.reset()">ریست</button>
+          </div>
+          <div class="checklist-wrap" id="checklistWrap">
+            <!-- rendered by JS -->
+          </div>
+          <div class="checklist-footer">
+            <div class="checklist-progress">
+              <div class="cl-prog-fill" id="clProgFill"></div>
+            </div>
+            <span id="clProgText">۰ از ۱۲ مورد تکمیل</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESOURCES SECTION ===== -->
+  <section class="section resources-section" id="resources">
+    <div class="container">
+      <div class="section-intro reveal">
+        <span class="section-tag">منابع علمی</span>
+        <h2>پژوهش‌های معتبر</h2>
+        <p>مبنای علمی اثر ورزش بر یادگیری و رشد شخصیت</p>
+      </div>
+
+      <div class="resources-filter reveal">
+        <button class="filter-btn active" data-filter="all">همه</button>
+        <button class="filter-btn" data-filter="neuro">عصب‌شناسی</button>
+        <button class="filter-btn" data-filter="edu">آموزش</button>
+        <button class="filter-btn" data-filter="psych">روانشناسی</button>
+        <button class="filter-btn" data-filter="iran">ایران</button>
+      </div>
+
+      <div class="resources-grid reveal" id="resourcesGrid">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb-logo">🤼</div>
+        <div>
+          <strong>سامانه هوشمند تربیت بدنی</strong>
+          <p>دانشگاه فرهنگیان — جشنواره رسانه‌های فرهنگی ـ ورزشی</p>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="لینک‌های پایین">
+        <a href="#home">خانه</a>
+        <a href="#training">تمرین</a>
+        <a href="#tools">ابزارها</a>
+        <a href="#teacher">پنل معلم</a>
+        <a href="#resources">منابع</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>طراحی شده برای جشنواره 1404 توسط علیرضا امجدیان | دانشجومعلم کشتی‌گیر</p>
+      <p class="footer-copy">داده‌های شما فقط در مرورگر شما ذخیره می‌شود</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================== TOAST ======================== -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+
+<style>
+  /* ============================================================
+   style.css — سامانه هوشمند تربیت بدنی | دانشگاه فرهنگیان
+   Design System: Industrial Athletic — Dark + Red/Gold
+   ============================================================ */
+
+/* ── 1. Custom Properties ── */
+:root {
+  /* Brand Colors */
+  --red:         #dc2626;
+  --red-bright:  #ef4444;
+  --red-dim:     #991b1b;
+  --red-glow:    rgba(220,38,38,0.25);
+  --gold:        #d97706;
+  --gold-light:  #fbbf24;
+  --gold-dim:    rgba(217,119,6,0.2);
+
+  /* Dark Theme (default) */
+  --bg:          #0a0a0f;
+  --bg-2:        #111118;
+  --bg-3:        #18181f;
+  --surface:     #1e1e28;
+  --surface-2:   #252533;
+  --surface-3:   #2e2e3e;
+  --border:      rgba(255,255,255,0.07);
+  --border-2:    rgba(255,255,255,0.12);
+  --text:        #f1f1f5;
+  --text-2:      #a0a0b8;
+  --text-3:      #606080;
+
+  /* Spacing */
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+
+  /* Shadows */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:  0 8px 32px rgba(0,0,0,0.4);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,0.6);
+  --shadow-red: 0 0 30px rgba(220,38,38,0.3);
+
+  /* Transitions */
+  --t-fast:   0.15s ease;
+  --t-base:   0.25s ease;
+  --t-slow:   0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Font */
+  --font: 'Vazirmatn', sans-serif;
+  --header-h: 70px;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg:       #f4f4f8;
+  --bg-2:     #eaeaf0;
+  --bg-3:     #ffffff;
+  --surface:  #ffffff;
+  --surface-2:#f0f0f8;
+  --surface-3:#e8e8f0;
+  --border:   rgba(0,0,0,0.08);
+  --border-2: rgba(0,0,0,0.14);
+  --text:     #111120;
+  --text-2:   #555570;
+  --text-3:   #9090b0;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+/* ── 2. Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+}
+
+a  { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; font-family: var(--font); border: none; outline: none; }
+input, select { font-family: var(--font); }
+
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: var(--bg-2); }
+::-webkit-scrollbar-thumb  { background: var(--red); border-radius: 3px; }
+::selection                { background: var(--red); color: white; }
+
+/* ── 3. Page Loader ── */
+.page-loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease;
+}
+.page-loader.fade-out { opacity: 0; pointer-events: none; }
+
+.loader-inner { text-align: center; }
+.loader-logo  { font-size: 3rem; margin-bottom: 24px; animation: pulse 1s ease-in-out infinite; }
+.loader-bar   {
+  width: 200px; height: 3px; background: var(--surface-3);
+  border-radius: 2px; margin: 0 auto 12px; overflow: hidden;
+}
+.loader-fill  {
+  height: 100%; background: linear-gradient(90deg, var(--red), var(--gold));
+  animation: loadFill 1.8s ease-in-out forwards;
+}
+.loader-text  { font-size: 0.85rem; color: var(--text-2); }
+
+@keyframes loadFill { from { width: 0; } to { width: 100%; } }
+@keyframes pulse    { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+
+/* ── 4. Custom Cursor ── */
+.custom-cursor {
+  width: 10px; height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s, width 0.2s, height 0.2s, opacity 0.2s;
+}
+.cursor-follower {
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--red);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  transition: left 0.12s ease, top 0.12s ease;
+  opacity: 0.5;
+}
+.cursor-hover .custom-cursor   { width: 20px; height: 20px; opacity: 0.6; }
+.cursor-hover .cursor-follower { width: 48px; height: 48px; }
+@media (pointer: coarse)       { .custom-cursor, .cursor-follower { display: none; } }
+
+/* ── 5. Header & Navbar ── */
+.header {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  height: var(--header-h);
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.header.scrolled {
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--border);
+}
+[data-theme="light"] .header.scrolled {
+  background: rgba(244,244,248,0.92);
+}
+
+.navbar {
+  max-width: 1280px; margin: 0 auto; padding: 0 28px;
+  height: 100%;
+  display: flex; align-items: center; gap: 32px;
+}
+
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0;
+}
+.brand-icon { font-size: 1.6rem; }
+.brand-text { display: flex; flex-direction: column; }
+.brand-main { font-weight: 800; font-size: 1rem; line-height: 1.2; }
+.brand-sub  { font-size: 0.7rem; color: var(--text-2); }
+
+.nav-menu {
+  display: flex; gap: 4px; flex: 1; justify-content: center;
+}
+.nav-item {
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.9rem; font-weight: 600;
+  color: var(--text-2);
+  transition: var(--t-base);
+  position: relative;
+}
+.nav-item:hover { color: var(--text); background: var(--surface); }
+.nav-item.active {
+  color: white; background: var(--red);
+}
+.nav-item.active::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 4px;
+  background: var(--red); border-radius: 50%;
+}
+
+.nav-actions {
+  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+}
+
+.theme-toggle {
+  width: 40px; height: 40px;
+  background: var(--surface); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--t-base);
+}
+.theme-toggle:hover { background: var(--surface-2); transform: rotate(20deg); }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; padding: 4px; border-radius: 6px;
+}
+.ham-line {
+  display: block; width: 22px; height: 2px;
+  background: var(--text); border-radius: 2px;
+  transition: var(--t-base);
+}
+.hamburger.open .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open .ham-line:nth-child(2) { opacity: 0; }
+.hamburger.open .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 6. Shared Section Styles ── */
+.section { padding: 120px 0; position: relative; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.section-tag {
+  display: inline-block;
+  padding: 5px 16px;
+  background: var(--red-glow);
+  border: 1px solid rgba(220,38,38,0.35);
+  color: var(--red-bright);
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.section-intro h2 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 900; margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.section-intro p { color: var(--text-2); font-size: 1.05rem; }
+
+/* ── 7. Reveal Animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── 8. Buttons ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 12px 28px;
+  border-radius: var(--r-sm);
+  font-weight: 700; font-size: 0.95rem;
+  transition: var(--t-base);
+  cursor: pointer; border: none;
+  font-family: var(--font);
+}
+.btn-primary {
+  background: var(--red);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--red-dim);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-red);
+}
+.btn-ghost {
+  background: var(--surface);
+  color: var(--text-2);
+  border: 1px solid var(--border-2);
+}
+.btn-ghost:hover { background: var(--surface-2); color: var(--text); }
+.btn-full       { width: 100%; }
+.btn-sm         { padding: 7px 16px; font-size: 0.82rem; }
+.btn-icon       { display: inline-block; transition: transform var(--t-base); }
+.btn:hover .btn-icon { transform: translateX(-4px); }
+
+/* ── 9. HERO ── */
+.hero-section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+  padding: 0 0 0 0;
+  background: var(--bg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Animated grid background */
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  justify-content: space-around;
+  pointer-events: none;
+  overflow: hidden;
+}
+.grid-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-2), transparent);
+  animation: gridSlide 4s ease-in-out var(--delay) infinite;
+  transform: translateX(-100%);
+}
+@keyframes gridSlide {
+  0%,100% { transform: translateX(-100%); opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* Particles */
+.particles { position: absolute; inset: 0; pointer-events: none; }
+.particle {
+  position: absolute;
+  width: 3px; height: 3px;
+  background: var(--red);
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: particleFloat linear infinite;
+}
+@keyframes particleFloat {
+  from { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+  to   { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Hero Content */
+.hero-content {
+  padding: var(--header-h) 0 80px 60px;
+  position: relative; z-index: 1;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 18px;
+  background: rgba(217,119,6,0.1);
+  border: 1px solid rgba(217,119,6,0.3);
+  color: var(--gold-light);
+  border-radius: 50px; font-size: 0.82rem; font-weight: 600;
+  margin-bottom: 28px;
+}
+.badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold-light);
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.hero-headline {
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  display: flex; flex-direction: column;
+}
+.headline-line { display: block; }
+.headline-line.accent {
+  background: linear-gradient(135deg, var(--red-bright), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub { font-size: 1.2rem; color: var(--text-2); margin-bottom: 48px; }
+.hero-sub strong { color: var(--text); }
+
+.hero-stats {
+  display: flex; align-items: center; gap: 28px; margin-bottom: 48px;
+}
+.stat-block { text-align: center; }
+.stat-val {
+  display: block; font-size: 2rem; font-weight: 900;
+  color: var(--gold-light); line-height: 1;
+}
+.stat-label { font-size: 0.75rem; color: var(--text-3); margin-top: 4px; }
+.stat-sep   { width: 1px; height: 36px; background: var(--border-2); }
+
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Decorative wrestling mat */
+.hero-deco {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--header-h) 40px 80px 0;
+}
+.deco-ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid var(--border);
+  animation: ringPulse 4s ease-in-out infinite;
+}
+.r1 { width: 320px; height: 320px; animation-delay: 0s; }
+.r2 { width: 240px; height: 240px; animation-delay: 0.6s; }
+.r3 { width: 160px; height: 160px; animation-delay: 1.2s; }
+
+@keyframes ringPulse {
+  0%,100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.04); opacity: 0.8; }
+}
+
+.deco-mat {
+  position: relative; width: 280px; height: 280px;
+  display: flex; align-items: center; justify-content: center;
+}
+.mat-circle {
+  position: absolute; border-radius: 50%;
+}
+.mat-circle.outer  { width: 280px; height: 280px; background: rgba(220,38,38,0.06); border: 2px solid rgba(220,38,38,0.3); }
+.mat-circle.middle { width: 200px; height: 200px; background: rgba(220,38,38,0.1); border: 2px solid rgba(220,38,38,0.4); }
+.mat-circle.inner  { width: 120px; height: 120px; background: rgba(220,38,38,0.15); border: 2px solid rgba(220,38,38,0.5); }
+.mat-center { font-size: 3.5rem; z-index: 1; filter: drop-shadow(0 0 20px rgba(220,38,38,0.5)); animation: matSpin 8s linear infinite; }
+@keyframes matSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-3); font-size: 0.75rem; z-index: 2;
+}
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(180deg, var(--red), transparent);
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+@keyframes scrollDrop { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(0.5);opacity:0.4} }
+
+/* ── 10. Values Section ── */
+.values-section { background: var(--bg-2); }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 60px;
+}
+.value-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--t-slow);
+}
+.value-card::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 0; height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+  transition: width 0.4s ease;
+}
+.value-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--border-2); }
+.value-card:hover::before { width: 100%; }
+
+.value-num {
+  font-size: 3.5rem; font-weight: 900;
+  color: var(--border-2);
+  position: absolute; top: 16px; left: 20px;
+  line-height: 1;
+}
+.value-icon-wrap {
+  width: 52px; height: 52px;
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.value-icon { font-size: 1.6rem; }
+.value-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.value-card p  { color: var(--text-2); font-size: 0.9rem; line-height: 1.7; }
+
+.pull-quote {
+  background: linear-gradient(135deg, rgba(220,38,38,0.06), rgba(217,119,6,0.04));
+  border: 1px solid rgba(220,38,38,0.2);
+  border-radius: var(--r-xl);
+  padding: 48px 56px;
+  text-align: center;
+  position: relative;
+}
+.pq-mark {
+  font-size: 5rem; line-height: 1;
+  color: var(--red); opacity: 0.3;
+  font-family: Georgia, serif;
+  position: absolute; top: 8px; right: 32px;
+}
+blockquote {
+  font-size: 1.15rem;
+  color: var(--text-2); line-height: 1.9;
+  margin-bottom: 16px;
+}
+blockquote strong { color: var(--text); }
+cite { font-size: 0.85rem; color: var(--gold); }
+
+/* ── 11. Training Section ── */
+.training-section { background: var(--bg); }
+
+.grade-tabs {
+  display: flex; gap: 12px; justify-content: center;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.grade-tab {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 14px 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  color: var(--text-2);
+  font-weight: 600; font-size: 0.95rem;
+  transition: var(--t-base); cursor: pointer;
+  min-width: 150px;
+}
+.grade-tab .tab-icon { font-size: 1.4rem; }
+.grade-tab .tab-sub  { font-size: 0.73rem; font-weight: 400; color: var(--text-3); }
+.grade-tab:hover     { border-color: var(--border-2); color: var(--text); background: var(--surface-2); }
+.grade-tab.active    { background: var(--red); border-color: var(--red); color: white; }
+.grade-tab.active .tab-sub { color: rgba(255,255,255,0.7); }
+
+.training-panel         { display: none; }
+.training-panel.active  { display: block; animation: fadeSlideIn 0.4s ease; }
+@keyframes fadeSlideIn  { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+
+.phase-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+}
+.phase-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: var(--t-base);
+}
+.phase-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-2); }
+.phase-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.phase-badge {
+  padding: 4px 12px; border-radius: 50px;
+  font-size: 0.78rem; font-weight: 700;
+}
+.phase-badge.warmup { background: rgba(251,191,36,0.15); color: #fbbf24; }
+.phase-badge.main   { background: rgba(220,38,38,0.15);  color: #ef4444; }
+.phase-badge.cool   { background: rgba(59,130,246,0.15); color: #93c5fd; }
+.phase-time { font-size: 0.82rem; color: var(--text-2); }
+
+.exercise-list { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+.exercise-list li { display: flex; gap: 14px; align-items: flex-start; }
+.ex-icon {
+  width: 20px; height: 20px;
+  background: var(--red); color: white;
+  border-radius: 4px; font-size: 0.55rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.exercise-list li div { display: flex; flex-direction: column; gap: 2px; }
+.exercise-list li strong { font-size: 0.9rem; color: var(--text); }
+.exercise-list li span  { font-size: 0.8rem; color: var(--text-2); }
+
+/* ── 12. Tools Section ── */
+.tools-section { background: var(--bg-2); }
+
+/* Profile Bar */
+.profile-bar {
+  display: flex; align-items: center; gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 16px 24px;
+  margin-bottom: 36px;
+}
+.profile-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--red), var(--gold));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; font-weight: 800; color: white;
+  flex-shrink: 0;
+}
+.profile-info { flex: 1; }
+.profile-name-input {
+  width: 100%; background: none; border: none; border-bottom: 1px solid var(--border-2);
+  color: var(--text); font-size: 1rem; font-weight: 700; padding: 4px 0;
+  margin-bottom: 8px; transition: var(--t-base);
+}
+.profile-name-input::placeholder { color: var(--text-3); font-weight: 400; }
+.profile-name-input:focus { outline: none; border-color: var(--red); }
+
+.profile-stats-mini { display: flex; gap: 16px; flex-wrap: wrap; }
+.profile-stats-mini span { font-size: 0.8rem; color: var(--text-2); }
+
+/* Tools Grid */
+.tools-master-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.tool-widget {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  transition: var(--t-slow);
+}
+.tool-widget:hover { border-color: var(--border-2); box-shadow: var(--shadow-md); }
+.tool-widget.wide  { grid-column: 1 / -1; }
+
+.widget-head {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.widget-head h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+.widget-head p  { font-size: 0.8rem; color: var(--text-2); }
+
+.widget-icon-wrap {
+  width: 46px; height: 46px; border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; flex-shrink: 0;
+}
+.bmi-color   { background: rgba(59,130,246,0.15); }
+.timer-color { background: rgba(220,38,38,0.15); }
+.sched-color { background: rgba(34,197,94,0.15); }
+
+.widget-saved-badge {
+  margin-right: auto; padding: 4px 12px;
+  background: rgba(34,197,94,0.15);
+  color: #4ade80; border-radius: 50px;
+  font-size: 0.75rem; font-weight: 700;
+  animation: badgePop 0.3s ease;
+}
+@keyframes badgePop { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
+
+.widget-body { padding: 24px; }
+
+/* Field Groups */
+.field-group { display: flex; flex-direction: column; gap: 6px; }
+.field-group label { font-size: 0.82rem; color: var(--text-2); font-weight: 600; }
+.field-group input,
+.field-group select {
+  padding: 10px 14px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: var(--t-base);
+  text-align: right;
+  width: 100%;
+}
+.field-group input:focus,
+.field-group select:focus {
+  outline: none;
+  border-color: var(--red);
+  background: var(--surface-3);
+}
+
+/* BMI Widget */
+.bmi-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+
+.bmi-result { margin-top: 20px; animation: fadeSlideIn 0.4s ease; }
+.bmi-gauge  { position: relative; text-align: center; margin-bottom: 16px; }
+.gauge-svg  { width: 200px; height: 130px; margin: 0 auto; display: block; }
+
+.bmi-value-display {
+  position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -30%);
+  text-align: center;
+}
+.bmi-value-display span { font-size: 2.2rem; font-weight: 900; display: block; }
+.bmi-value-display small { font-size: 0.75rem; color: var(--text-2); }
+
+.bmi-category {
+  text-align: center; font-size: 1.1rem; font-weight: 700;
+  margin-bottom: 10px; padding: 8px;
+  border-radius: var(--r-sm);
+}
+.bmi-advice { font-size: 0.88rem; color: var(--text-2); text-align: center; margin-bottom: 16px; line-height: 1.6; }
+
+.bmi-range-bar {
+  display: flex; height: 8px; border-radius: 4px;
+  overflow: visible; margin-top: 20px; position: relative; gap: 2px;
+}
+.range-segment {
+  border-radius: 4px;
+  position: relative; overflow: visible;
+}
+.range-segment span {
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+  font-size: 0.65rem; color: var(--text-3); white-space: nowrap;
+}
+.range-marker {
+  position: absolute; top: -4px;
+  width: 16px; height: 16px;
+  background: white; border-radius: 50%;
+  border: 3px solid var(--red);
+  transform: translateX(-50%);
+  transition: left 0.6s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Timer Widget */
+.timer-stage { display: flex; justify-content: center; margin-bottom: 20px; }
+.timer-arc-wrap {
+  position: relative; width: 200px; height: 200px;
+  display: flex; align-items: center; justify-content: center;
+}
+.timer-arc { position: absolute; inset: 0; transform: rotate(-90deg); }
+
+.arc-track {
+  fill: none; stroke: var(--surface-3); stroke-width: 10;
+}
+.arc-fill {
+  fill: none; stroke: var(--red); stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 552.9;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
+}
+.arc-fill.rest-phase { stroke: #3b82f6; }
+
+.timer-center { text-align: center; z-index: 1; }
+.timer-phase-label { font-size: 0.8rem; color: var(--text-2); margin-bottom: 4px; }
+.timer-digits { font-size: 2.8rem; font-weight: 900; line-height: 1; }
+.timer-round-info { font-size: 0.8rem; color: var(--text-2); margin-top: 4px; }
+
+.timer-settings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.num-stepper {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  padding: 8px 14px;
+}
+.stepper-btn {
+  background: none; color: var(--text); font-size: 1.2rem;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 4px; transition: var(--t-fast);
+}
+.stepper-btn:hover { background: var(--surface-2); }
+#roundDisplay { font-size: 1.1rem; font-weight: 700; }
+
+.timer-controls { display: flex; gap: 8px; }
+.timer-controls .btn { flex: 1; }
+
+.timer-log {
+  margin-top: 16px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+.timer-log-item {
+  font-size: 0.8rem; color: var(--text-2);
+  padding: 6px 10px;
+  background: var(--bg-2);
+  border-radius: var(--r-sm);
+  margin-bottom: 4px;
+  display: flex; justify-content: space-between;
+}
+
+/* Schedule Widget */
+.sched-inputs {
+  display: grid; grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 14px; align-items: end; margin-bottom: 24px;
+}
+.sched-inputs .btn { height: 40px; white-space: nowrap; }
+
+.sched-output { animation: fadeSlideIn 0.4s ease; }
+.sched-table  { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.sched-table th, .sched-table td {
+  padding: 12px 16px; text-align: right;
+  border-bottom: 1px solid var(--border);
+}
+.sched-table th { background: var(--bg-2); font-weight: 700; color: var(--text-2); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.sched-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+.day-pill {
+  display: inline-block; padding: 3px 12px;
+  border-radius: 50px; font-size: 0.78rem; font-weight: 700;
+}
+.day-pill.active  { background: rgba(220,38,38,0.15); color: var(--red-bright); }
+.day-pill.off     { background: var(--surface-2); color: var(--text-3); }
+
+.intensity-dot::before {
+  content: ''; display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-left: 8px; vertical-align: middle;
+}
+
+/* ── 13. Quiz Section ── */
+.quiz-section { background: var(--bg); }
+
+.quiz-arena {
+  max-width: 740px; margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+.quiz-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+.quiz-progress-wrap { flex: 1; display: flex; align-items: center; gap: 12px; }
+.quiz-progress-bar  { flex: 1; height: 6px; background: var(--bg-2); border-radius: 3px; overflow: hidden; }
+.quiz-progress-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--gold)); border-radius: 3px; transition: width 0.5s ease; }
+.quiz-progress-text { font-size: 0.82rem; color: var(--text-2); white-space: nowrap; }
+.quiz-score-live    { font-size: 0.9rem; font-weight: 700; color: var(--gold-light); white-space: nowrap; }
+
+#quizBody { padding: 32px 28px; min-height: 260px; }
+
+.q-block { animation: fadeSlideIn 0.35s ease; }
+.q-text  {
+  font-size: 1.1rem; font-weight: 600;
+  margin-bottom: 24px; line-height: 1.7;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.q-options { display: flex; flex-direction: column; gap: 10px; }
+.q-opt {
+  width: 100%; padding: 14px 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-sm);
+  color: var(--text);
+  text-align: right; font-size: 0.95rem;
+  font-weight: 500; cursor: pointer;
+  transition: var(--t-base);
+  display: flex; align-items: center; gap: 14px;
+}
+.q-opt:hover:not(:disabled) { border-color: var(--red); background: rgba(220,38,38,0.07); }
+.q-opt.correct { border-color: #22c55e; background: rgba(34,197,94,0.12); color: #4ade80; }
+.q-opt.wrong   { border-color: var(--red-bright); background: rgba(220,38,38,0.12); color: #fca5a5; }
+.q-opt .opt-letter {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 700; flex-shrink: 0;
+}
+.q-feedback {
+  margin-top: 16px; padding: 12px 16px;
+  border-radius: var(--r-sm);
+  font-size: 0.88rem; line-height: 1.6;
+  animation: fadeSlideIn 0.3s ease;
+}
+.q-feedback.correct { background: rgba(34,197,94,0.1); color: #4ade80; border-right: 3px solid #22c55e; }
+.q-feedback.wrong   { background: rgba(220,38,38,0.1);  color: #fca5a5; border-right: 3px solid var(--red); }
+
+.quiz-nav { padding: 0 28px 24px; display: flex; justify-content: flex-end; gap: 10px; }
+
+.quiz-result-panel {
+  padding: 40px 28px; text-align: center;
+  animation: fadeSlideIn 0.5s ease;
+}
+.qr-emoji  { font-size: 4rem; margin-bottom: 16px; }
+.qr-score  { font-size: 4rem; font-weight: 900; line-height: 1; margin-bottom: 8px; }
+.qr-pct    { font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; }
+.qr-msg    { color: var(--text-2); font-size: 1rem; margin-bottom: 24px; }
+.qr-detail { display: flex; justify-content: center; gap: 24px; margin-bottom: 28px; }
+.qr-stat   { display: flex; flex-direction: column; align-items: center; }
+.qr-stat span:first-child { font-size: 1.6rem; font-weight: 900; }
+.qr-stat small { font-size: 0.78rem; color: var(--text-3); }
+
+/* ── 14. Teacher Section ── */
+.teacher-section { background: var(--bg-2); }
+
+.teacher-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.teacher-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 28px;
+  transition: var(--t-base);
+}
+.teacher-card:hover { border-color: var(--border-2); box-shadow: var(--shadow-md); }
+.teacher-card.wide-card { grid-column: span 3; }
+
+.tc-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.tc-icon  { font-size: 1.5rem; }
+.tc-header h3 { font-size: 1.05rem; font-weight: 700; flex: 1; }
+
+.tip-list { display: flex; flex-direction: column; gap: 12px; }
+.tip-list li {
+  font-size: 0.88rem; color: var(--text-2);
+  padding-right: 16px; position: relative; line-height: 1.6;
+}
+.tip-list li::before {
+  content: '▸';
+  position: absolute; right: 0; top: 0;
+  color: var(--red);
+}
+.tip-list.safety li::before { content: '⚠️'; font-size: 0.7rem; }
+
+/* Checklist */
+.checklist-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.cl-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: var(--t-base);
+  font-size: 0.85rem; color: var(--text-2);
+}
+.cl-item:hover { border-color: var(--border-2); }
+.cl-item.checked {
+  background: rgba(34,197,94,0.08);
+  border-color: rgba(34,197,94,0.3);
+  color: var(--text);
+}
+.cl-checkbox {
+  width: 20px; height: 20px; flex-shrink: 0;
+  border: 2px solid var(--border-2);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--t-fast);
+}
+.cl-item.checked .cl-checkbox { background: #22c55e; border-color: #22c55e; color: white; font-size: 0.75rem; }
+
+.checklist-footer { display: flex; align-items: center; gap: 16px; }
+.checklist-progress {
+  flex: 1; height: 6px; background: var(--surface-3);
+  border-radius: 3px; overflow: hidden;
+}
+.cl-prog-fill {
+  height: 100%; background: linear-gradient(90deg, #22c55e, #86efac);
+  border-radius: 3px; transition: width 0.4s ease; width: 0%;
+}
+#clProgText { font-size: 0.82rem; color: var(--text-2); white-space: nowrap; }
+
+/* ── 15. Resources Section ── */
+.resources-section { background: var(--bg); }
+
+.resources-filter {
+  display: flex; gap: 8px; justify-content: center;
+  margin-bottom: 40px; flex-wrap: wrap;
+}
+.filter-btn {
+  padding: 8px 20px;
+  border-radius: 50px;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  color: var(--text-2);
+  font-size: 0.88rem; font-weight: 600;
+  transition: var(--t-base); cursor: pointer;
+}
+.filter-btn:hover { border-color: var(--red); color: var(--text); }
+.filter-btn.active { background: var(--red); border-color: var(--red); color: white; }
+
+.resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.res-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 26px;
+  transition: var(--t-slow);
+  opacity: 1;
+}
+.res-card.hidden { display: none; }
+.res-card:hover  { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--border-2); }
+
+.res-tag {
+  display: inline-block; padding: 3px 12px;
+  border-radius: 50px; font-size: 0.73rem; font-weight: 700;
+  margin-bottom: 14px;
+}
+.res-card h4 { font-size: 0.97rem; font-weight: 700; margin-bottom: 10px; }
+.res-card p  { color: var(--text-2); font-size: 0.87rem; line-height: 1.7; margin-bottom: 16px; }
+.res-meta { display: flex; gap: 12px; flex-wrap: wrap; }
+.res-meta span { font-size: 0.75rem; color: var(--text-3); }
+
+/* ── 16. Footer ── */
+.footer {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 32px;
+}
+.footer-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 28px; flex-wrap: wrap; gap: 24px;
+}
+.footer-brand { display: flex; align-items: center; gap: 14px; }
+.fb-logo { font-size: 2rem; }
+.footer-brand strong { display: block; font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+.footer-brand p { font-size: 0.82rem; color: var(--text-2); }
+.footer-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-nav a { font-size: 0.88rem; color: var(--text-2); transition: var(--t-base); }
+.footer-nav a:hover { color: var(--red-bright); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; text-align: center; }
+.footer-bottom p { font-size: 0.82rem; color: var(--text-3); margin-bottom: 4px; }
+
+/* ── 17. Toast ── */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+  background: var(--surface-3);
+  border: 1px solid var(--border-2);
+  padding: 12px 24px; border-radius: 50px;
+  font-size: 0.9rem; font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  z-index: 9999; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s;
+  opacity: 0; white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+/* ── 18. Responsive ── */
+@media (max-width: 1100px) {
+  .hero-section  { grid-template-columns: 1fr; }
+  .hero-deco     { display: none; }
+  .hero-content  { padding: calc(var(--header-h) + 40px) 40px 80px; text-align: center; }
+  .hero-stats    { justify-content: center; }
+  .hero-ctas     { justify-content: center; }
+  .values-grid   { grid-template-columns: repeat(2, 1fr); }
+  .teacher-grid  { grid-template-columns: 1fr 1fr; }
+  .teacher-card.wide-card { grid-column: span 2; }
+  .checklist-wrap { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 900px) {
+  .nav-menu  { display: none; }
+  .hamburger { display: flex; }
+  .nav-menu.open {
+    display: flex; flex-direction: column; position: fixed;
+    top: var(--header-h); left: 0; right: 0;
+    background: rgba(10,10,15,0.97);
+    backdrop-filter: blur(20px);
+    padding: 20px 28px; gap: 4px;
+    border-bottom: 1px solid var(--border);
+  }
+  [data-theme="light"] .nav-menu.open { background: rgba(244,244,248,0.97); }
+  .nav-item { border-radius: var(--r-sm); padding: 12px 16px; }
+
+  .phase-grid     { grid-template-columns: 1fr; }
+  .tools-master-grid { grid-template-columns: 1fr; }
+  .tool-widget.wide { grid-column: 1; }
+  .sched-inputs   { grid-template-columns: 1fr; }
+  .sched-inputs .btn { width: 100%; }
+  .bmi-inputs     { grid-template-columns: 1fr; }
+  .teacher-grid   { grid-template-columns: 1fr; }
+  .teacher-card.wide-card { grid-column: 1; }
+  .checklist-wrap { grid-template-columns: 1fr 1fr; }
+  .resources-grid { grid-template-columns: 1fr 1fr; }
+  .values-grid    { grid-template-columns: 1fr; }
+  .profile-bar    { flex-wrap: wrap; }
+  .timer-settings { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .section       { padding: 80px 0; }
+  .container     { padding: 0 18px; }
+  .resources-grid { grid-template-columns: 1fr; }
+  .checklist-wrap { grid-template-columns: 1fr; }
+  .grade-tab     { min-width: 110px; }
+  .hero-content  { padding: calc(var(--header-h) + 20px) 20px 60px; }
+  .hero-headline { font-size: 2.4rem; }
+  .quiz-arena    { margin: 0 -8px; border-radius: var(--r-lg); }
+  .pull-quote    { padding: 32px 28px; }
+}
+</style>
+<script>
+  /**
+ * script.js — سامانه هوشمند تربیت بدنی | دانشگاه فرهنگیان
+ * ============================================================
+ * Architecture: Module Pattern (IIFE)
+ * Storage: localStorage wrapper
+ * Modules:
+ *   - App         (init, theme, nav, cursor, loader)
+ *   - StorageUtil (localStorage wrapper)
+ *   - CounterAnim (animated number counters)
+ *   - RevealAnim  (intersection observer scroll reveals)
+ *   - ProfileModule (user profile)
+ *   - BMIModule   (BMI calculator)
+ *   - TimerModule (round timer)
+ *   - ScheduleModule (weekly plan generator)
+ *   - QuizModule  (Q&A quiz)
+ *   - ChecklistModule (teacher checklist)
+ *   - ResourcesModule (filtered resources)
+ *   - Toast       (notification)
+ */
+
+'use strict';
+
+/* ══════════════════════════════════════════
+   UTILITY: Storage wrapper with error handling
+   ══════════════════════════════════════════ */
+const StorageUtil = (() => {
+  const PREFIX = 'wrestling_edu_';
+
+  const set = (key, value) => {
+    try {
+      localStorage.setItem(PREFIX + key, JSON.stringify(value));
+      return true;
+    } catch (e) {
+      console.warn('Storage write failed:', e);
+      return false;
+    }
+  };
+
+  const get = (key, fallback = null) => {
+    try {
+      const raw = localStorage.getItem(PREFIX + key);
+      return raw !== null ? JSON.parse(raw) : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  };
+
+  const remove = (key) => {
+    try { localStorage.removeItem(PREFIX + key); } catch (e) {}
+  };
+
+  const clearAll = () => {
+    try {
+      Object.keys(localStorage)
+        .filter(k => k.startsWith(PREFIX))
+        .forEach(k => localStorage.removeItem(k));
+    } catch (e) {}
+  };
+
+  return { set, get, remove, clearAll };
+})();
+
+
+/* ══════════════════════════════════════════
+   UTILITY: Persian Number Formatter
+   ══════════════════════════════════════════ */
+const toPersian = (n) => {
+  if (n === null || n === undefined) return '—';
+  return String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+};
+
+
+/* ══════════════════════════════════════════
+   UTILITY: Toast Notifications
+   ══════════════════════════════════════════ */
+const Toast = (() => {
+  let timer = null;
+  const el = document.getElementById('toast');
+
+  const show = (msg, type = 'info', duration = 3000) => {
+    if (!el) return;
+    el.textContent = msg;
+    el.style.background =
+      type === 'success' ? 'rgba(34,197,94,0.9)' :
+      type === 'error'   ? 'rgba(220,38,38,0.9)' :
+      type === 'warn'    ? 'rgba(217,119,6,0.9)' :
+                           'rgba(46,46,62,0.97)';
+    el.style.color = 'white';
+    el.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(() => el.classList.remove('show'), duration);
+  };
+
+  return { show };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Counter Animation
+   ══════════════════════════════════════════ */
+const CounterAnim = (() => {
+  const animate = (el, target, duration = 1800) => {
+    let start = null;
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+    const step = (ts) => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const current = Math.floor(easeOut(progress) * target);
+      el.textContent = toPersian(current);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = toPersian(target);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const init = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('[data-count]').forEach(el => {
+            animate(el, parseInt(el.dataset.count));
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    const statsEl = document.querySelector('.hero-stats');
+    if (statsEl) observer.observe(statsEl);
+  };
+
+  return { init };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Reveal Scroll Animations
+   ══════════════════════════════════════════ */
+const RevealAnim = (() => {
+  const init = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.dataset.delay || 0);
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  };
+
+  return { init };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Profile
+   ══════════════════════════════════════════ */
+const ProfileModule = (() => {
+  const nameInput = document.getElementById('profileName');
+  const avatarEl  = document.getElementById('profileAvatar');
+
+  const updateAvatar = (name) => {
+    if (!avatarEl) return;
+    avatarEl.textContent = name ? name.charAt(0) : '?';
+  };
+
+  const refreshStats = () => {
+    const bmi    = StorageUtil.get('bmi_result');
+    const score  = StorageUtil.get('quiz_best_score');
+    const workouts = StorageUtil.get('workout_log', []);
+
+    const bmiEl  = document.getElementById('psBmi');
+    const scEl   = document.getElementById('psScore');
+    const wkEl   = document.getElementById('psWorkoutCount');
+
+    if (bmiEl)  bmiEl.textContent  = bmi   ? `BMI: ${bmi}` : 'BMI: —';
+    if (scEl)   scEl.textContent   = score !== null ? `نمره آزمون: ${toPersian(score)}٪` : 'نمره آزمون: —';
+    if (wkEl)   wkEl.textContent   = toPersian(workouts.length);
+  };
+
+  const init = () => {
+    if (!nameInput) return;
+
+    const savedName = StorageUtil.get('user_name', '');
+    nameInput.value = savedName;
+    updateAvatar(savedName);
+
+    nameInput.addEventListener('input', () => {
+      const name = nameInput.value.trim();
+      StorageUtil.set('user_name', name);
+      updateAvatar(name);
+    });
+
+    const clearBtn = document.getElementById('clearDataBtn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (confirm('همه داده‌های ذخیره شده پاک شود؟')) {
+          StorageUtil.clearAll();
+          nameInput.value = '';
+          updateAvatar('');
+          refreshStats();
+          Toast.show('داده‌ها پاک شد', 'warn');
+          // Reset UI
+          document.getElementById('bmiResult').style.display = 'none';
+          document.getElementById('schedOutput').innerHTML = '';
+        }
+      });
+    }
+
+    refreshStats();
+  };
+
+  return { init, refreshStats };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: BMI Calculator
+   ══════════════════════════════════════════ */
+const BMIModule = (() => {
+  /**
+   * BMI categories and advice
+   */
+  const CATEGORIES = [
+    { max: 18.5, label: 'کم‌وزن',    color: '#3b82f6', advice: 'تغذیه کافی و تمرینات قدرتی برای افزایش توده عضلانی توصیه می‌شود.' },
+    { max: 25,   label: 'وزن ایده‌آل', color: '#22c55e', advice: 'وضعیت عالی! ادامه دهید. تمرین منظم کشتی را حفظ کنید.' },
+    { max: 30,   label: 'اضافه‌وزن', color: '#f59e0b', advice: 'تمرینات هوازی منظم و رژیم غذایی متعادل توصیه می‌شود.' },
+    { max: Infinity, label: 'چاقی', color: '#ef4444', advice: 'با متخصص تغذیه و پزشک مشورت کنید و با تمرینات سبک شروع کنید.' },
+  ];
+
+  /**
+   * Map BMI value to needle angle (−90° to +90°)
+   * BMI range: 10–40 → angle: −90° to +90°
+   */
+  const bmiToAngle = (bmi) => {
+    const clamped = Math.max(10, Math.min(40, bmi));
+    return ((clamped - 10) / 30) * 180 - 90;
+  };
+
+  /**
+   * Map BMI to range bar position %
+   * Ranges: <18.5, 18.5-25, 25-30, 30+
+   */
+  const bmiToBarPct = (bmi) => {
+    const clamped = Math.max(10, Math.min(40, bmi));
+    return ((clamped - 10) / 30) * 100;
+  };
+
+  const calculate = () => {
+    const h   = parseFloat(document.getElementById('bmiHeight').value);
+    const w   = parseFloat(document.getElementById('bmiWeight').value);
+    const age = parseFloat(document.getElementById('bmiAge').value);
+
+    if (!h || !w || h < 100 || h > 250 || w < 20 || w > 300) {
+      Toast.show('⚠️ لطفاً قد و وزن معتبر وارد کنید', 'warn');
+      return;
+    }
+
+    const bmi = +(w / ((h / 100) ** 2)).toFixed(1);
+    const cat = CATEGORIES.find(c => bmi < c.max);
+    const angle = bmiToAngle(bmi);
+    const barPct = bmiToBarPct(bmi);
+
+    // Show result
+    const resultEl = document.getElementById('bmiResult');
+    resultEl.style.display = 'block';
+
+    // Needle
+    const needle = document.getElementById('gaugeNeedle');
+    if (needle) {
+      const rad = (angle * Math.PI) / 180;
+      const x2 = 100 + 70 * Math.sin(rad);
+      const y2 = 110 - 70 * Math.cos(rad);
+      needle.setAttribute('x2', x2.toFixed(1));
+      needle.setAttribute('y2', y2.toFixed(1));
+    }
+
+    // Value display
+    const valEl = document.getElementById('bmiValueText');
+    if (valEl) valEl.textContent = bmi;
+
+    // Category
+    const catEl = document.getElementById('bmiCategory');
+    if (catEl) {
+      catEl.textContent = cat.label;
+      catEl.style.background = cat.color + '22';
+      catEl.style.color = cat.color;
+    }
+
+    // Advice
+    const advEl = document.getElementById('bmiAdvice');
+    if (advEl) {
+      advEl.innerHTML = cat.advice;
+      if (age && age < 18) advEl.innerHTML += ' <em>(برای نوجوانان محاسبه باید با جدول رشد تطبیق داده شود)</em>';
+    }
+
+    // Range marker
+    const markerEl = document.getElementById('rangeMarker');
+    if (markerEl) markerEl.style.left = barPct + '%';
+
+    // Save to localStorage
+    StorageUtil.set('bmi_result', bmi);
+
+    // Show badge
+    const badge = document.getElementById('bmiSavedBadge');
+    if (badge) { badge.style.display = 'block'; setTimeout(() => badge.style.display = 'none', 3000); }
+
+    ProfileModule.refreshStats();
+    Toast.show(`BMI شما: ${bmi} — ${cat.label}`, 'success');
+  };
+
+  const init = () => {
+    const btn = document.getElementById('bmiCalcBtn');
+    if (btn) btn.addEventListener('click', calculate);
+
+    // Keyboard support
+    ['bmiHeight','bmiWeight','bmiAge'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') calculate(); });
+    });
+
+    // Restore saved values
+    const saved = StorageUtil.get('bmi_inputs');
+    if (saved) {
+      if (document.getElementById('bmiHeight')) document.getElementById('bmiHeight').value = saved.h || '';
+      if (document.getElementById('bmiWeight')) document.getElementById('bmiWeight').value = saved.w || '';
+      if (document.getElementById('bmiAge'))    document.getElementById('bmiAge').value    = saved.a || '';
+    }
+  };
+
+  return { init };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Timer
+   ══════════════════════════════════════════ */
+const TimerModule = (() => {
+  // State
+  let state = {
+    running:     false,
+    phase:       'work',   // 'work' | 'rest'
+    timeLeft:    120,
+    currentRound: 1,
+    totalRounds:  5,
+    workTime:    120,
+    restTime:    30,
+    intervalId:  null,
+  };
+
+  const ARC_CIRC = 2 * Math.PI * 88; // ≈ 552.9
+
+  // DOM refs
+  const digits    = () => document.getElementById('timerDigits');
+  const label     = () => document.getElementById('timerPhaseLabel');
+  const roundEl   = () => document.getElementById('timerRound');
+  const totalEl   = () => document.getElementById('timerTotal');
+  const arcFill   = () => document.getElementById('arcFill');
+  const playBtn   = () => document.getElementById('timerPlayBtn');
+  const logEl     = () => document.getElementById('timerLog');
+
+  const formatTime = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    return `${toPersian(m)}:${toPersian(s).padStart(2, '۰')}`;
+  };
+
+  const updateArc = () => {
+    const total = state.phase === 'work' ? state.workTime : state.restTime;
+    const pct   = state.timeLeft / total;
+    const offset = ARC_CIRC * (1 - pct);
+    const arc = arcFill();
+    if (!arc) return;
+    arc.style.strokeDashoffset = offset;
+    arc.classList.toggle('rest-phase', state.phase === 'rest');
+  };
+
+  const render = () => {
+    if (digits())  digits().textContent  = formatTime(state.timeLeft);
+    if (label())   label().textContent   = state.phase === 'work' ? 'تمرین' : 'استراحت';
+    if (roundEl()) roundEl().textContent = toPersian(state.currentRound);
+    if (totalEl()) totalEl().textContent = toPersian(state.totalRounds);
+    updateArc();
+  };
+
+  const beep = (type = 'work') => {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = 'sine';
+      osc.frequency.value = type === 'work' ? 880 : 440;
+      gain.gain.setValueAtTime(0.35, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.5);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.5);
+    } catch(e) { /* AudioContext not available */ }
+  };
+
+  const tick = () => {
+    state.timeLeft--;
+
+    if (state.timeLeft < 0) {
+      // Phase transition
+      if (state.phase === 'work') {
+        beep('rest');
+        state.phase    = 'rest';
+        state.timeLeft = state.restTime;
+      } else {
+        state.currentRound++;
+        if (state.currentRound > state.totalRounds) {
+          // Finished!
+          stop();
+          if (digits()) digits().textContent = '✅';
+          if (label())  label().textContent  = 'پایان!';
+          Toast.show('🏆 تمام راندها اتمام یافت!', 'success');
+          logSession();
+          return;
+        }
+        beep('work');
+        state.phase    = 'work';
+        state.timeLeft = state.workTime;
+      }
+    }
+    render();
+  };
+
+  const toggle = () => {
+    if (state.running) {
+      stop();
+    } else {
+      start();
+    }
+  };
+
+  const start = () => {
+    state.running = true;
+    if (playBtn()) playBtn().textContent = 'توقف';
+    state.intervalId = setInterval(tick, 1000);
+  };
+
+  const stop = () => {
+    state.running = false;
+    if (playBtn()) playBtn().textContent = 'ادامه';
+    clearInterval(state.intervalId);
+  };
+
+  const reset = () => {
+    stop();
+    state.phase        = 'work';
+    state.timeLeft     = state.workTime;
+    state.currentRound = 1;
+    if (playBtn()) playBtn().textContent = 'شروع';
+    render();
+  };
+
+  const logSession = () => {
+    const log = StorageUtil.get('workout_log', []);
+    const now = new Date();
+    const entry = {
+      date:   now.toLocaleDateString('fa-IR'),
+      time:   now.toLocaleTimeString('fa-IR'),
+      rounds: state.totalRounds,
+      workTime: state.workTime,
+    };
+    log.unshift(entry);
+    if (log.length > 20) log.pop(); // Keep last 20
+    StorageUtil.set('workout_log', log);
+
+    // Render last 5 in log area
+    renderLog(log.slice(0, 5));
+    ProfileModule.refreshStats();
+    Toast.show('جلسه تمرین ثبت شد ✓', 'success');
+  };
+
+  const renderLog = (entries) => {
+    const el = logEl();
+    if (!el) return;
+    if (!entries.length) { el.innerHTML = ''; return; }
+    el.innerHTML = entries.map(e => `
+      <div class="timer-log-item">
+        <span>${e.date} — ${e.time}</span>
+        <span>${toPersian(e.rounds)} راند × ${toPersian(e.workTime)}s</span>
+      </div>
+    `).join('');
+  };
+
+  const init = () => {
+    state.workTime = 120;
+    state.timeLeft = state.workTime;
+    render();
+
+    // Round stepper
+    const minusBtn = document.getElementById('roundMinus');
+    const plusBtn  = document.getElementById('roundPlus');
+    const dispEl   = document.getElementById('roundDisplay');
+
+    if (minusBtn) minusBtn.addEventListener('click', () => {
+      if (state.totalRounds > 1) { state.totalRounds--; if (dispEl) dispEl.textContent = toPersian(state.totalRounds); if (!state.running) render(); }
+    });
+    if (plusBtn) plusBtn.addEventListener('click', () => {
+      if (state.totalRounds < 20) { state.totalRounds++; if (dispEl) dispEl.textContent = toPersian(state.totalRounds); if (!state.running) render(); }
+    });
+
+    // Work time input
+    const workInput = document.getElementById('workTimeInput');
+    if (workInput) workInput.addEventListener('change', () => {
+      const v = parseInt(workInput.value);
+      if (v >= 30 && v <= 300) {
+        state.workTime = v;
+        if (!state.running) { state.timeLeft = v; render(); }
+      }
+    });
+
+    // Restore log
+    const savedLog = StorageUtil.get('workout_log', []);
+    renderLog(savedLog.slice(0, 5));
+  };
+
+  return { init, toggle, reset, logSession };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Weekly Schedule Generator
+   ══════════════════════════════════════════ */
+const ScheduleModule = (() => {
+  const WEEKDAYS = ['شنبه','یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه'];
+
+  const PLANS = {
+    beginner: {
+      fitness: [
+        { focus: 'گرم‌کردن + حرکات اولیه',     dur: '۳۵',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'استراحت فعال',                dur: '۲۰',  intensity: 'بسیار سبک', color: '#86efac' },
+        { focus: 'قدرت پایه (شنا + اسکوات)',    dur: '۴۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'هوازی سبک',                   dur: '۳۰',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'کشش و انعطاف',                dur: '۲۵',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+      technique: [
+        { focus: 'تکنیک حالت آماده‌باش',       dur: '۴۵',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'استراحت',                     dur: '—',   intensity: '—',      color: '#6b7280' },
+        { focus: 'سقوط ایمن + جابجایی',        dur: '۵۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'بازی‌های کشتی پایه',          dur: '۴۵',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'مرور تکنیک‌ها',              dur: '۳۵',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+      competition: [
+        { focus: 'آمادگی قلبی‌عروقی',         dur: '۴۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'تکنیک + اسپارینگ سبک',      dur: '۵۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'استراحت کامل',               dur: '—',   intensity: '—',      color: '#6b7280' },
+        { focus: 'قدرت + انفجاری',             dur: '۴۵',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'تمرین ذهنی و مرور',          dur: '۳۰',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+    },
+    intermediate: {
+      fitness: [
+        { focus: 'هوازی + قدرت ترکیبی',       dur: '۶۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'ریکاوری فعال',               dur: '۳۰',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'قدرت: برپی، شنا، پل',       dur: '۵۵',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'هوازی متوسط',                dur: '۵۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'کشش عمیق + یوگا',            dur: '۴۰',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+      technique: [
+        { focus: 'تکنیک پیشرفته کشتی',        dur: '۷۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'اسپارینگ کنترل‌شده',         dur: '۶۰',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'استراحت فعال',               dur: '۳۵',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'تاکتیک + موقعیت‌های خاص',   dur: '۶۵',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'ویدئو تحلیل + مرور',        dur: '۴۵',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+      competition: [
+        { focus: 'اسپارینگ + تاکتیک',         dur: '۸۰',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'قدرت انفجاری',               dur: '۶۰',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'ریکاوری + کشش',              dur: '۴۰',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'شبیه‌سازی مسابقه',           dur: '۷۵',  intensity: 'بسیار سنگین', color: '#dc2626' },
+        { focus: 'ذهنی + آمادگی روانی',        dur: '۴۵',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+    },
+    advanced: {
+      fitness: [
+        { focus: 'هوازی پرشدت (HIIT)',         dur: '۶۰',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'قدرت: پاور + انفجاری',       dur: '۷۵',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'ریکاوری فعال',               dur: '۴۵',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'کراس‌فیت ورزشی',             dur: '۸۰',  intensity: 'بسیار سنگین', color: '#dc2626' },
+        { focus: 'یوگای پیشرفته',              dur: '۵۰',  intensity: 'متوسط',  color: '#f59e0b' },
+      ],
+      technique: [
+        { focus: 'تکنیک ظریف + ایراد‌گیری',   dur: '۹۰',  intensity: 'متوسط',  color: '#f59e0b' },
+        { focus: 'اسپارینگ کامل',              dur: '۸۵',  intensity: 'بسیار سنگین', color: '#dc2626' },
+        { focus: 'ریکاوری تخصصی',              dur: '۵۰',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'تاکتیک پیشرفته رقابتی',     dur: '۸۰',  intensity: 'سنگین',  color: '#ef4444' },
+        { focus: 'آنالیز ویدئو + ذهنی',       dur: '۶۰',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+      competition: [
+        { focus: 'اسپارینگ تیمی فشرده',        dur: '۱۰۵', intensity: 'بسیار سنگین', color: '#dc2626' },
+        { focus: 'قدرت: المپیک لیفت',          dur: '۸۰',  intensity: 'بسیار سنگین', color: '#dc2626' },
+        { focus: 'ریکاوری + فیزیوتراپی',       dur: '۶۰',  intensity: 'سبک',    color: '#22c55e' },
+        { focus: 'شبیه‌سازی رقابت + تاکتیک',  dur: '۹۵',  intensity: 'بسیار سنگین', color: '#dc2626' },
+        { focus: 'آمادگی ذهنی پیش‌رقابت',     dur: '۵۵',  intensity: 'سبک',    color: '#22c55e' },
+      ],
+    },
+  };
+
+  const DAY_CONFIGS = {
+    3: [0, 2, 4],       // شنبه، دوشنبه، چهارشنبه
+    4: [0, 1, 2, 4],    // شنبه تا سه‌شنبه و چهارشنبه
+    5: [0, 1, 2, 3, 4], // شنبه تا چهارشنبه
+  };
+
+  const generate = () => {
+    const level    = document.getElementById('schedLevel').value;
+    const daysCount = parseInt(document.getElementById('schedDays').value);
+    const goal     = document.getElementById('schedGoal').value;
+    const output   = document.getElementById('schedOutput');
+
+    const activeDayIdxs = DAY_CONFIGS[daysCount];
+    const workouts = PLANS[level][goal];
+
+    const levelNames = { beginner:'مبتدی', intermediate:'متوسط', advanced:'پیشرفته' };
+    const goalNames  = { fitness:'آمادگی عمومی', technique:'تکنیک کشتی', competition:'آمادگی رقابتی' };
+
+    let html = `
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px;padding:12px 16px;background:var(--bg-2);border-radius:var(--r-sm);">
+        <span style="font-size:0.85rem;color:var(--text-2)">
+          📋 برنامه <strong style="color:var(--text)">${levelNames[level]}</strong> —
+          هدف: <strong style="color:var(--red-bright)">${goalNames[goal]}</strong> —
+          ${toPersian(daysCount)} روز در هفته
+        </span>
+        <span style="font-size:0.75rem;color:var(--text-3)">ذخیره شد ✓</span>
+      </div>
+      <table class="sched-table">
+        <thead>
+          <tr>
+            <th>روز</th>
+            <th>تمرکز تمرین</th>
+            <th>مدت (دقیقه)</th>
+            <th>شدت</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    let workoutIdx = 0;
+    WEEKDAYS.forEach((day, i) => {
+      const isActive = activeDayIdxs.includes(i);
+      const w = isActive && workoutIdx < workouts.length ? workouts[workoutIdx++] : null;
+
+      html += `
+        <tr>
+          <td><span class="day-pill ${isActive ? 'active' : 'off'}">${day}</span></td>
+          <td style="color:${isActive ? 'var(--text)' : 'var(--text-3)'}">${w ? w.focus : '—'}</td>
+          <td style="color:var(--text-2);font-weight:700">${w ? w.dur : '—'}</td>
+          <td>
+            ${w && w.intensity !== '—' ? `<span style="color:${w.color};font-weight:700;font-size:0.85rem">${w.intensity}</span>` : '<span style="color:var(--text-3)">استراحت</span>'}
+          </td>
+        </tr>
+      `;
+    });
+
+    html += '</tbody></table>';
+    output.innerHTML = html;
+
+    // Save to localStorage
+    StorageUtil.set('last_schedule', { level, daysCount, goal });
+    const badge = document.getElementById('schedSavedBadge');
+    if (badge) { badge.style.display = 'block'; setTimeout(() => badge.style.display = 'none', 3000); }
+
+    Toast.show('برنامه هفتگی ذخیره شد ✓', 'success');
+  };
+
+  const init = () => {
+    // Restore last schedule
+    const saved = StorageUtil.get('last_schedule');
+    if (saved) {
+      const sl = document.getElementById('schedLevel');
+      const sd = document.getElementById('schedDays');
+      const sg = document.getElementById('schedGoal');
+      if (sl) sl.value = saved.level;
+      if (sd) sd.value = saved.daysCount;
+      if (sg) sg.value = saved.goal;
+      generate();
+    }
+  };
+
+  return { init, generate };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Quiz
+   ══════════════════════════════════════════ */
+const QuizModule = (() => {
+  const QUESTIONS = [
+    {
+      q: 'در کشتی آزاد، یک امتیاز (تک امتیاز) به کدام حالت تعلق می‌گیرد؟',
+      opts: ['پرتاب کامل با کنترل', 'گرفتن پای حریف', 'لمس زمین با هر دو دست', 'خروج حریف از تشک'],
+      ans: 3,
+      exp: 'وقتی حریف از تشک خارج شود یا با دو دست به زمین بیفتد، یک امتیاز به حریف مقابل تعلق می‌گیرد.',
+    },
+    {
+      q: 'مدت زمان هر دوره مسابقه کشتی در المپیک چقدر است؟',
+      opts: ['۲ دوره ۱ دقیقه‌ای', '۲ دوره ۳ دقیقه‌ای', '۳ دوره ۲ دقیقه‌ای', '۱ دوره ۶ دقیقه‌ای'],
+      ans: 1,
+      exp: 'طبق قوانین UWW، هر مسابقه کشتی شامل دو دوره ۳ دقیقه‌ای با استراحت ۳۰ ثانیه‌ای است.',
+    },
+    {
+      q: 'در کشتی فرنگی، کدام عمل ممنوع است؟',
+      opts: ['گرفتن کمر حریف', 'فشار آوردن به پا یا پای حریف', 'پرتاب از پهلو', 'دفاع با دست'],
+      ans: 1,
+      exp: 'در کشتی فرنگی گرفتن هر قسمتی از بدن حریف زیر کمر (از جمله پا) ممنوع است.',
+    },
+    {
+      q: 'اگر کشتی‌گیری حریف را به وضعیت «پل» دربیاورد و ۵ ثانیه نگه دارد، چه اتفاقی می‌افتد؟',
+      opts: ['۱ امتیاز می‌گیرد', '۲ امتیاز می‌گیرد', 'مسابقه ادامه دارد', 'پیروزی فنی (ایپون)'],
+      ans: 3,
+      exp: 'نگه داشتن شانه‌های حریف در حالت پل به مدت کافی منجر به پیروزی فنی (اورفال یا ایپون) می‌شود.',
+    },
+    {
+      q: 'کشتی از چه دوره‌ای جزء ورزش‌های رسمی المپیک مدرن شد؟',
+      opts: ['المپیک ۱۸۹۶ آتن', 'المپیک ۱۹۰۰ پاریس', 'المپیک ۱۹۰۴ سنت‌لوئیس', 'المپیک ۱۹۲۰ آنتورپ'],
+      ans: 0,
+      exp: 'کشتی آزاد و فرنگی از اولین المپیک مدرن در آتن ۱۸۹۶ در برنامه بوده‌اند.',
+    },
+    {
+      q: 'در کشتی آزاد، پرتابی که حریف روی کمر بیفتد چند امتیاز دارد؟',
+      opts: ['۱ امتیاز', '۲ امتیاز', '۴ امتیاز', '۵ امتیاز'],
+      ans: 3,
+      exp: 'در کشتی آزاد، اگر ورزشکاری حریف را با کنترل کامل روی کمر به زمین بیندازد، ۵ امتیاز می‌گیرد.',
+    },
+    {
+      q: 'مهم‌ترین نقش ورزش کشتی در مدرسه کدام است؟',
+      opts: ['فقط آمادگی جسمانی', 'فقط شناسایی استعداد', 'پرورش نظم، احترام و مسئولیت‌پذیری', 'آماده‌سازی برای قهرمانی'],
+      ans: 2,
+      exp: 'کشتی به عنوان ابزار تربیتی، نظم، احترام به حریف و مسئولیت‌پذیری را در دانش‌آموزان پرورش می‌دهد.',
+    },
+    {
+      q: 'قبل از اجرای تکنیک‌های پرتاب در مدرسه، معلم باید مطمئن شود که:',
+      opts: ['دانش‌آموزان قوی‌تر تمرین می‌کنند', 'سطح پنجه کفش مناسب است', 'دانش‌آموزان گرم کرده و سقوط ایمن را یاد گرفته‌اند', 'دانش‌آموزان بازنده قبول می‌کنند'],
+      ans: 2,
+      exp: 'ایمنی اول: قبل از هر تکنیک پرتاب، گرم‌کردن کامل و یادگیری سقوط ایمن الزامی است.',
+    },
+    {
+      q: 'کدام سازمان بین‌المللی مسئول تنظیم قوانین کشتی در المپیک است؟',
+      opts: ['FIFA', 'UWW (United World Wrestling)', 'IOC مستقیم', 'WADA'],
+      ans: 1,
+      exp: 'UWW یا فدراسیون جهانی کشتی (United World Wrestling) مرجع تنظیم و تأیید قوانین رسمی کشتی است.',
+    },
+    {
+      q: 'طبق پژوهش‌های علمی، ورزش منظم چه اثری بر یادگیری دانش‌آموزان دارد؟',
+      opts: ['تأثیر منفی بر تمرکز دارد', 'فقط جسم را تقویت می‌کند', 'حافظه و تمرکز را بهبود می‌دهد', 'بر یادگیری بی‌تأثیر است'],
+      ans: 2,
+      exp: 'پژوهش‌های عصب‌شناسی نشان می‌دهند فعالیت بدنی منظم حجم هیپوکامپ را افزایش داده و حافظه و تمرکز را بهبود می‌بخشد.',
+    },
+  ];
+
+  // State
+  let state = {
+    current:  0,
+    score:    0,
+    answered: false,
+    answers:  [],
+  };
+
+  // DOM helpers
+  const bodyEl      = () => document.getElementById('quizBody');
+  const progressFill = () => document.getElementById('quizProgressFill');
+  const progressTxt  = () => document.getElementById('quizProgressText');
+  const scoreLive    = () => document.getElementById('quizScoreLive');
+  const nextBtn      = () => document.getElementById('quizNextBtn');
+  const submitBtn    = () => document.getElementById('quizSubmitBtn');
+  const restartBtn   = () => document.getElementById('quizRestartBtn');
+  const resultPanel  = () => document.getElementById('quizResultPanel');
+
+  const LETTERS = ['الف','ب','ج','د'];
+
+  const renderQuestion = () => {
+    const q = QUESTIONS[state.current];
+    const total = QUESTIONS.length;
+
+    // Progress
+    const pct = (state.current / total) * 100;
+    if (progressFill()) progressFill().style.width = pct + '%';
+    if (progressTxt())  progressTxt().textContent  = `سوال ${toPersian(state.current + 1)} از ${toPersian(total)}`;
+
+    // Body
+    bodyEl().innerHTML = `
+      <div class="q-block">
+        <p class="q-text">${toPersian(state.current + 1)}. ${q.q}</p>
+        <div class="q-options">
+          ${q.opts.map((opt, i) => `
+            <button class="q-opt" onclick="QuizModule._selectAnswer(${i})">
+              <span class="opt-letter">${LETTERS[i]}</span>
+              <span>${opt}</span>
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    state.answered = false;
+    if (nextBtn())   nextBtn().style.display   = 'none';
+    if (submitBtn()) submitBtn().style.display = 'none';
+    if (restartBtn()) restartBtn().style.display = 'none';
+    if (resultPanel()) resultPanel().style.display = 'none';
+  };
+
+  const _selectAnswer = (selected) => {
+    if (state.answered) return;
+    state.answered = true;
+
+    const q = QUESTIONS[state.current];
+    const buttons = document.querySelectorAll('.q-opt');
+    const isCorrect = selected === q.ans;
+
+    buttons.forEach((btn, i) => {
+      btn.disabled = true;
+      if (i === q.ans)    btn.classList.add('correct');
+      else if (i === selected) btn.classList.add('wrong');
+    });
+
+    if (isCorrect) state.score++;
+    state.answers.push({ q: state.current, selected, correct: q.ans, isCorrect });
+
+    // Feedback
+    const feedback = document.createElement('div');
+    feedback.className = `q-feedback ${isCorrect ? 'correct' : 'wrong'}`;
+    feedback.innerHTML = `${isCorrect ? '✅ درست!' : '❌ اشتباه!'} — ${q.exp}`;
+    document.querySelector('.q-block').appendChild(feedback);
+
+    // Update live score
+    if (scoreLive()) scoreLive().textContent = toPersian(state.score);
+
+    const isLast = state.current === QUESTIONS.length - 1;
+    if (isLast) {
+      if (submitBtn()) submitBtn().style.display = 'block';
+    } else {
+      if (nextBtn()) nextBtn().style.display = 'block';
+    }
+  };
+
+  const next = () => {
+    if (!state.answered) return;
+    state.current++;
+    renderQuestion();
+  };
+
+  const finish = () => {
+    const total   = QUESTIONS.length;
+    const pct     = Math.round((state.score / total) * 100);
+    const correct = state.answers.filter(a => a.isCorrect).length;
+    const wrong   = state.answers.filter(a => !a.isCorrect).length;
+
+    // Update progress to 100%
+    if (progressFill()) progressFill().style.width = '100%';
+    if (progressTxt())  progressTxt().textContent  = 'پایان آزمون';
+    bodyEl().innerHTML = '';
+
+    if (submitBtn()) submitBtn().style.display = 'none';
+    if (restartBtn()) restartBtn().style.display = 'block';
+    if (resultPanel()) resultPanel().style.display = 'block';
+
+    const emoji = pct >= 80 ? '🏆' : pct >= 60 ? '👍' : pct >= 40 ? '📚' : '💪';
+    const msg   = pct >= 80 ? 'عالی! شما یک کارشناس کشتی هستید!' :
+                  pct >= 60 ? 'خوب! کمی مطالعه بیشتر کافی است.' :
+                  pct >= 40 ? 'تلاش خوبی بود — یاد گرفتن ادامه دارد.' :
+                              'نگران نباشید! تمرین بیشتر می‌طلبد.';
+
+    const scoreColor = pct >= 80 ? '#22c55e' : pct >= 60 ? '#f59e0b' : '#ef4444';
+
+    resultPanel().innerHTML = `
+      <div class="qr-emoji">${emoji}</div>
+      <div class="qr-score" style="color:${scoreColor}">${toPersian(state.score)}/${toPersian(total)}</div>
+      <div class="qr-pct"   style="color:${scoreColor}">${toPersian(pct)}٪</div>
+      <div class="qr-msg">${msg}</div>
+      <div class="qr-detail">
+        <div class="qr-stat"><span style="color:#22c55e">${toPersian(correct)}</span><small>درست</small></div>
+        <div class="qr-stat"><span style="color:#ef4444">${toPersian(wrong)}</span><small>اشتباه</small></div>
+        <div class="qr-stat"><span style="color:var(--gold-light)">${toPersian(pct)}٪</span><small>درصد موفقیت</small></div>
+      </div>
+    `;
+
+    // Save best score
+    const prev = StorageUtil.get('quiz_best_score', 0);
+    if (pct > prev) {
+      StorageUtil.set('quiz_best_score', pct);
+      Toast.show(`🏆 رکورد جدید: ${toPersian(pct)}٪`, 'success');
+    } else {
+      Toast.show(`نمره: ${toPersian(pct)}٪`, pct >= 60 ? 'success' : 'warn');
+    }
+
+    ProfileModule.refreshStats();
+  };
+
+  const restart = () => {
+    state = { current: 0, score: 0, answered: false, answers: [] };
+    if (scoreLive()) scoreLive().textContent = '۰';
+    if (resultPanel()) resultPanel().style.display = 'none';
+    renderQuestion();
+  };
+
+  const init = () => renderQuestion();
+
+  return { init, next, finish, restart, _selectAnswer };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Teacher Checklist
+   ══════════════════════════════════════════ */
+const ChecklistModule = (() => {
+  const ITEMS = [
+    'تشک‌ها بررسی و ضدعفونی شده',
+    'کفپوش بدون لغزندگی',
+    'لباس مناسب دانش‌آموزان',
+    'ناخن‌ها کوتاه است',
+    'جواهرات درآورده شده',
+    'جعبه کمک‌های اولیه آماده',
+    'گرم‌کردن کامل انجام شده',
+    'گروه‌بندی وزنی انجام شده',
+    'قوانین توضیح داده شده',
+    'دانش‌آموزان آمادگی دارند',
+    'فضای کافی وجود دارد',
+    'معلم کمکی حضور دارد',
+  ];
+
+  const getState = () => StorageUtil.get('checklist_state', {});
+
+  const saveState = (state) => StorageUtil.set('checklist_state', state);
+
+  const render = () => {
+    const wrap  = document.getElementById('checklistWrap');
+    const state = getState();
+    if (!wrap) return;
+
+    wrap.innerHTML = ITEMS.map((item, i) => {
+      const checked = !!state[i];
+      return `
+        <div class="cl-item ${checked ? 'checked' : ''}" onclick="ChecklistModule._toggle(${i})" role="checkbox" aria-checked="${checked}" tabindex="0">
+          <div class="cl-checkbox">${checked ? '✓' : ''}</div>
+          <span>${item}</span>
+        </div>
+      `;
+    }).join('');
+
+    updateProgress(state);
+  };
+
+  const _toggle = (idx) => {
+    const state = getState();
+    state[idx] = !state[idx];
+    saveState(state);
+    render();
+  };
+
+  const updateProgress = (state) => {
+    const checked = Object.values(state).filter(Boolean).length;
+    const total   = ITEMS.length;
+    const pct     = (checked / total) * 100;
+
+    const fillEl = document.getElementById('clProgFill');
+    const textEl = document.getElementById('clProgText');
+
+    if (fillEl) fillEl.style.width = pct + '%';
+    if (textEl) textEl.textContent = `${toPersian(checked)} از ${toPersian(total)} مورد تکمیل`;
+
+    if (checked === total) Toast.show('✅ آماده برگزاری جلسه!', 'success');
+  };
+
+  const reset = () => {
+    saveState({});
+    render();
+    Toast.show('چک‌لیست پاک شد', 'warn');
+  };
+
+  const init = () => render();
+
+  return { init, reset, _toggle };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Resources (filtered display)
+   ══════════════════════════════════════════ */
+const ResourcesModule = (() => {
+  const DATA = [
+    {
+      cat: 'neuro',
+      catLabel: 'عصب‌شناسی',
+      catColor: '#3b82f6',
+      title: 'ورزش و رشد هیپوکامپ',
+      body: 'دانشگاه هاروارد در پژوهشی نشان داد ورزش منظم حجم هیپوکامپ — ناحیه حافظه — را تا ۲٪ در بزرگسالان افزایش می‌دهد.',
+      source: 'Harvard Medical School',
+      year: '2023',
+    },
+    {
+      cat: 'edu',
+      catLabel: 'آموزش',
+      catColor: '#22c55e',
+      title: 'فعالیت بدنی و عملکرد تحصیلی',
+      body: 'سازمان بهداشت جهانی (WHO) گزارش داد دانش‌آموزانی با ۶۰ دقیقه فعالیت بدنی روزانه نمرات ۲۰٪ بهتری در آزمون‌ها دارند.',
+      source: 'WHO Global Report on Physical Activity',
+      year: '2023',
+    },
+    {
+      cat: 'psych',
+      catLabel: 'روانشناسی',
+      catColor: '#a855f7',
+      title: 'رزمی‌کاران و هوش هیجانی',
+      body: 'مطالعه مجله روانشناسی ورزشی: ورزشکاران رزمی نمرات بالاتری در کنترل هیجان، همدلی و تنظیم استرس دارند.',
+      source: 'Journal of Sport Psychology',
+      year: '2022',
+    },
+    {
+      cat: 'iran',
+      catLabel: 'ایران',
+      catColor: '#f59e0b',
+      title: 'کشتی در برنامه درسی ملی',
+      body: 'پژوهشکده تربیت بدنی ایران گزارش داد ادغام مهارت‌های کشتی در تربیت بدنی مدارس رفتار اجتماعی مثبت را تقویت می‌کند.',
+      source: 'پژوهشکده تربیت بدنی و علوم ورزشی',
+      year: '۱۴۰۲',
+    },
+    {
+      cat: 'neuro',
+      catLabel: 'عصب‌شناسی',
+      catColor: '#3b82f6',
+      title: 'انتقال‌دهنده‌های عصبی و ورزش',
+      body: 'ورزش سطح دوپامین، سروتونین و نوراپی‌نفرین را افزایش می‌دهد — سه مکانیزم اصلی بهبود تمرکز و خلق‌وخو.',
+      source: 'Neuroscience & Biobehavioral Reviews',
+      year: '2022',
+    },
+    {
+      cat: 'edu',
+      catLabel: 'آموزش',
+      catColor: '#22c55e',
+      title: 'ارزش‌های المپیک در مدرسه',
+      body: 'کمیته بین‌المللی المپیک (IOC) توصیه می‌کند ورزش‌های سنتی مانند کشتی برای انتقال ارزش‌های المپیک در مدارس استفاده شوند.',
+      source: 'IOC Olympic Education Report',
+      year: '2023',
+    },
+    {
+      cat: 'psych',
+      catLabel: 'روانشناسی',
+      catColor: '#a855f7',
+      title: 'کشتی و کاهش پرخاشگری',
+      body: 'پژوهشگران دانشگاه تهران نشان دادند تمرین منظم کشتی تحت نظارت مربی، میزان پرخاشگری تکانشی در نوجوانان را کاهش می‌دهد.',
+      source: 'فصلنامه روانشناسی کاربردی',
+      year: '۱۴۰۱',
+    },
+    {
+      cat: 'iran',
+      catLabel: 'ایران',
+      catColor: '#f59e0b',
+      title: 'کشتی؛ هویت ملی و آموزش',
+      body: 'وزارت آموزش و پرورش ایران کشتی را به عنوان ورزش ملی با پیشینه فرهنگی غنی برای آموزش مهارت‌های زندگی معرفی کرده است.',
+      source: 'سازمان آموزش و پرورش ایران',
+      year: '۱۴۰۲',
+    },
+    {
+      cat: 'neuro',
+      catLabel: 'عصب‌شناسی',
+      catColor: '#3b82f6',
+      title: 'BDNF و یادگیری',
+      body: 'ورزش هوازی فاکتور نروتروفیک BDNF را افزایش می‌دهد — پروتئینی که رشد نورون‌های جدید را تحریک و یادگیری را تسهیل می‌کند.',
+      source: 'Nature Reviews Neuroscience',
+      year: '2022',
+    },
+  ];
+
+  const render = (filter = 'all') => {
+    const grid = document.getElementById('resourcesGrid');
+    if (!grid) return;
+
+    const filtered = filter === 'all' ? DATA : DATA.filter(d => d.cat === filter);
+
+    grid.innerHTML = filtered.map(item => `
+      <div class="res-card">
+        <span class="res-tag" style="background:${item.catColor}22;color:${item.catColor};border:1px solid ${item.catColor}44">${item.catLabel}</span>
+        <h4>${item.title}</h4>
+        <p>${item.body}</p>
+        <div class="res-meta">
+          <span>📰 ${item.source}</span>
+          <span>📅 ${item.year}</span>
+        </div>
+      </div>
+    `).join('');
+  };
+
+  const init = () => {
+    render();
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        render(btn.dataset.filter);
+      });
+    });
+  };
+
+  return { init };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Training Tabs
+   ══════════════════════════════════════════ */
+const TrainingTabs = (() => {
+  const init = () => {
+    document.querySelectorAll('.grade-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.grade-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        document.querySelectorAll('.training-panel').forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        const panel = document.getElementById('panel-' + tab.dataset.grade);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  };
+
+  return { init };
+})();
+
+
+/* ══════════════════════════════════════════
+   MODULE: Particles
+   ══════════════════════════════════════════ */
+const ParticlesModule = (() => {
+  const init = () => {
+    const container = document.getElementById('particles');
+    if (!container) return;
+
+    const COUNT = 25;
+    for (let i = 0; i < COUNT; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        width: ${Math.random() * 4 + 2}px;
+        height: ${Math.random() * 4 + 2}px;
+        animation-duration: ${Math.random() * 12 + 8}s;
+        animation-delay: ${Math.random() * 8}s;
+        opacity: ${Math.random() * 0.4 + 0.1};
+        background: ${Math.random() > 0.5 ? 'var(--red)' : 'var(--gold)'};
+      `;
+      container.appendChild(p);
+    }
+  };
+
+  return { init };
+})();
+
+
+/* ══════════════════════════════════════════
+   MAIN APP
+   ══════════════════════════════════════════ */
+const App = (() => {
+  /* ── Loader ── */
+  const initLoader = () => {
+    setTimeout(() => {
+      const loader = document.getElementById('pageLoader');
+      if (loader) {
+        loader.classList.add('fade-out');
+        setTimeout(() => loader.remove(), 600);
+      }
+    }, 1800);
+  };
+
+  /* ── Theme ── */
+  const initTheme = () => {
+    const saved  = StorageUtil.get('theme', 'dark');
+    const toggle = document.getElementById('themeToggle');
+    const html   = document.documentElement;
+
+    const apply = (theme) => {
+      html.setAttribute('data-theme', theme);
+      if (toggle) toggle.querySelector('.theme-icon').textContent = theme === 'dark' ? '🌙' : '☀️';
+    };
+
+    apply(saved);
+
+    if (toggle) toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next    = current === 'dark' ? 'light' : 'dark';
+      apply(next);
+      StorageUtil.set('theme', next);
+      Toast.show(next === 'dark' ? '🌙 حالت تاریک فعال شد' : '☀️ حالت روشن فعال شد');
+    });
+  };
+
+  /* ── Navbar ── */
+  const initNavbar = () => {
+    const header = document.getElementById('header');
+    const ham    = document.getElementById('hamburger');
+    const menu   = document.getElementById('navMenu');
+
+    // Scroll effect
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (header) header.classList.toggle('scrolled', window.scrollY > 40);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Hamburger
+    if (ham && menu) {
+      ham.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        ham.classList.toggle('open', open);
+        ham.setAttribute('aria-expanded', String(open));
+      });
+
+      // Close on link click
+      menu.querySelectorAll('.nav-item').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          ham.classList.remove('open');
+          ham.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-item[data-section]');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const match = document.querySelector(`.nav-item[data-section="${entry.target.id}"]`);
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => sectionObserver.observe(s));
+  };
+
+  /* ── Custom Cursor ── */
+  const initCursor = () => {
+    const cursor   = document.getElementById('cursor');
+    const follower = document.getElementById('cursorFollower');
+    if (!cursor || !follower) return;
+
+    // Only on non-touch devices
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    let mx = 0, my = 0, fx = 0, fy = 0;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      cursor.style.left   = mx + 'px';
+      cursor.style.top    = my + 'px';
+    });
+
+    const animFollower = () => {
+      fx += (mx - fx) * 0.12;
+      fy += (my - fy) * 0.12;
+      follower.style.left = fx + 'px';
+      follower.style.top  = fy + 'px';
+      requestAnimationFrame(animFollower);
+    };
+    animFollower();
+
+    // Hover effect on interactive elements
+    document.querySelectorAll('a, button, .q-opt, .cl-item, .grade-tab, .filter-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  };
+
+  /* ── Smooth Scroll ── */
+  const initSmoothScroll = () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+        }
+      });
+    });
+  };
+
+  /* ── Init all modules ── */
+  const init = () => {
+    initLoader();
+    initTheme();
+    initNavbar();
+    initCursor();
+    initSmoothScroll();
+
+    ParticlesModule.init();
+    RevealAnim.init();
+    CounterAnim.init();
+    ProfileModule.init();
+    BMIModule.init();
+    TimerModule.init();
+    ScheduleModule.init();
+    QuizModule.init();
+    ChecklistModule.init();
+    ResourcesModule.init();
+    TrainingTabs.init();
+  };
+
+  return { init };
+})();
+
+/* ══ Bootstrap ══ */
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', App.init);
+} else {
+  App.init();
+}
+</script>
+</body>
+</html>

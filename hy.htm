@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>رشدینو | درباره ما</title>
+<link rel="icon" type="image/svg+xml" href="./photo24423565914.jpg">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;700;900&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:     #04080a;
+  --bg2:    #070d10;
+  --surf:   #0c1519;
+  --surf2:  #101d22;
+  --blue:   #00c8f5;
+  --blue2:  #0097cc;
+  --blue3:  #005a7a;
+  --gold:   #f5c800;
+  --green:  #00e96a;
+  --text:   #dff4ff;
+  --muted:  #5a8fa0;
+  --muted2: #2e5060;
+  --line:   rgba(0,200,245,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Vazirmatn',sans-serif;
+  background:var(--bg);color:var(--text);
+  overflow-x:hidden;cursor:none;
+}
+
+/* ── CURSOR ── */
+#cur{position:fixed;width:10px;height:10px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:width .2s,height .2s;}
+#cur-r{position:fixed;width:32px;height:32px;border:1px solid rgba(0,200,245,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s cubic-bezier(.17,.67,.83,.67);}
+
+/* ── PROGRESS ── */
+#sp{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--gold));z-index:500;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 3rem;
+  background:rgba(4,8,10,0.8);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  transition:padding .3s;
+}
+nav.sc{padding:.7rem 3rem;background:rgba(4,8,10,0.95);}
+.logo{display:flex;align-items:center;gap:.8rem;}
+.logo-mark{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue2),var(--blue3));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:900;color:#fff;
+  box-shadow:0 0 20px rgba(0,151,204,0.5);
+  letter-spacing:-.03em;
+}
+.logo-text{font-size:.95rem;font-weight:700;}
+.logo-sub{font-size:.66rem;color:var(--muted);font-weight:300;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.83rem;position:relative;transition:color .2s;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;right:0;left:0;height:1px;background:var(--blue);transform:scaleX(0);transition:transform .3s;}
+.nav-links a:hover{color:var(--blue);}
+.nav-links a:hover::after,.nav-links a.act::after{transform:scaleX(1);}
+.nav-links a.act{color:var(--blue);}
+.nav-btn{background:transparent;border:1px solid var(--blue);color:var(--blue);padding:.5rem 1.2rem;border-radius:6px;font-family:inherit;font-size:.8rem;font-weight:600;cursor:none;transition:all .2s;}
+.nav-btn:hover{background:var(--blue);color:var(--bg);box-shadow:0 0 20px rgba(0,200,245,0.3);}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;flex-direction:column;text-align:center;
+  padding:9rem 2rem 5rem;
+}
+.ph-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 40%,rgba(0,80,120,0.25),transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 80%,rgba(0,200,245,0.05),transparent),
+    var(--bg);
+  animation:pulse 8s ease-in-out infinite alternate;
+}
+@keyframes pulse{from{opacity:1;}to{opacity:.75;}}
+.ph-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:70px 70px;
+  animation:gm 25s linear infinite;
+}
+@keyframes gm{from{background-position:0 0;}to{background-position:70px 70px;}}
+
+/* floating ring */
+.ph-ring{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);
+  width:500px;height:500px;border-radius:50%;
+  border:1px solid rgba(0,200,245,0.06);
+  animation:spin 40s linear infinite;
+}
+.ph-ring::before{
+  content:'';position:absolute;inset:40px;border-radius:50%;
+  border:1px solid rgba(0,200,245,0.04);
+  animation:spin 20s linear infinite reverse;
+}
+@keyframes spin{from{transform:translate(-50%,-60%) rotate(0);}to{transform:translate(-50%,-60%) rotate(360deg);}}
+
+.ph-badge{
+  position:relative;z-index:1;
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(0,200,245,0.06);border:1px solid rgba(0,200,245,0.2);
+  border-radius:50px;padding:.4rem 1.2rem;
+  font-size:.76rem;color:var(--blue);font-weight:500;margin-bottom:2rem;
+  animation:fup .8s ease both;
+}
+.ph-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+h1.ph-title{
+  position:relative;z-index:1;
+  font-size:clamp(3rem,8vw,6rem);font-weight:900;
+  letter-spacing:-.03em;line-height:1;margin-bottom:1rem;
+  animation:fup .8s .1s ease both;
+}
+h1.ph-title .name{
+  display:block;
+  background:linear-gradient(135deg,var(--blue) 0%,var(--gold) 60%,var(--green) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ph-tag{
+  position:relative;z-index:1;
+  font-size:.88rem;color:var(--muted);font-weight:300;letter-spacing:.04em;
+  margin-bottom:3rem;animation:fup .8s .2s ease both;
+}
+
+.ph-cards{
+  position:relative;z-index:1;
+  display:flex;gap:1px;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+  animation:fup .8s .3s ease both;
+}
+.ph-card{
+  padding:1.4rem 2rem;text-align:center;background:var(--surf);flex:1;
+  transition:background .2s;
+}
+.ph-card:hover{background:var(--surf2);}
+.ph-card+.ph-card{border-right:1px solid var(--line);}
+.ph-card .val{
+  font-size:1.8rem;font-weight:900;
+  background:linear-gradient(135deg,var(--blue),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ph-card .lbl{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+
+/* ── SECTIONS ── */
+.sec{padding:6rem 3rem;}
+.inner{max-width:1050px;margin:0 auto;}
+.stag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-bottom:.8rem;}
+.stag::before{content:'// ';}
+h2.st{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;line-height:1.15;margin-bottom:.7rem;}
+h2.st em{font-style:normal;background:linear-gradient(135deg,var(--blue),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sdesc{color:var(--muted);font-size:.9rem;line-height:1.9;font-weight:300;max-width:580px;}
+
+/* ── WHAT IS ROSHDINO ── */
+.what{background:var(--bg2);}
+.what-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;}
+.what-text p{font-size:.92rem;color:var(--muted);line-height:1.95;margin-top:1rem;}
+.what-text p+p{margin-top:.8rem;}
+.what-visual{
+  background:var(--surf);border:1px solid var(--line);border-radius:20px;
+  padding:2rem;display:flex;flex-direction:column;gap:1rem;
+}
+.wv-item{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem;background:rgba(0,200,245,0.03);border-radius:12px;
+  border:1px solid rgba(0,200,245,0.07);
+  transition:border-color .2s;
+}
+.wv-item:hover{border-color:rgba(0,200,245,0.2);}
+.wv-icon{width:44px;height:44px;border-radius:10px;background:rgba(0,200,245,0.1);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.wv-info h4{font-size:.88rem;font-weight:700;}
+.wv-info p{font-size:.75rem;color:var(--muted);margin-top:.15rem;}
+
+/* ── GOALS ── */
+.goals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem;}
+.goal-card{
+  background:var(--surf);border:1px solid var(--line);border-radius:16px;
+  padding:1.8rem;position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s;
+}
+.goal-card:hover{transform:translateY(-6px);border-color:rgba(0,200,245,0.3);}
+.goal-card::after{
+  content:'';position:absolute;top:0;right:0;width:60px;height:60px;
+  background:radial-gradient(circle,rgba(0,200,245,0.08),transparent);
+  border-radius:0 16px 0 60px;
+}
+.gc-num{font-size:2.5rem;font-weight:900;color:rgba(0,200,245,0.12);line-height:1;margin-bottom:.8rem;}
+.gc-title{font-size:.95rem;font-weight:700;margin-bottom:.5rem;}
+.gc-body{font-size:.8rem;color:var(--muted);line-height:1.7;}
+
+/* ── AUDIENCE ── */
+.aud{background:var(--bg2);}
+.aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.5rem;}
+.aud-card{
+  background:var(--surf);border:1px solid var(--line);border-radius:16px;
+  padding:2rem;display:flex;gap:1.2rem;align-items:flex-start;
+  transition:border-color .2s;
+}
+.aud-card:hover{border-color:rgba(0,200,245,0.25);}
+.aud-icon{font-size:2rem;flex-shrink:0;width:56px;height:56px;background:rgba(0,200,245,0.08);border-radius:12px;display:flex;align-items:center;justify-content:center;}
+.aud-info h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
+.aud-info p{font-size:.8rem;color:var(--muted);line-height:1.7;}
+
+/* ── ROADMAP ── */
+.road-wrap{position:relative;margin-top:2.5rem;}
+.road-line{
+  position:absolute;top:0;right:28px;width:2px;height:100%;
+  background:linear-gradient(to bottom,var(--blue3),transparent);
+}
+.road-item{
+  display:flex;gap:1.5rem;align-items:flex-start;
+  padding:.5rem 0 2.5rem;
+  position:relative;
+}
+.road-dot{
+  width:58px;height:58px;border-radius:50%;
+  background:var(--surf2);border:2px solid var(--blue3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;position:relative;z-index:1;
+  transition:border-color .3s,box-shadow .3s;
+}
+.road-item:hover .road-dot{border-color:var(--blue);box-shadow:0 0 20px rgba(0,200,245,0.3);}
+.road-content{
+  background:var(--surf);border:1px solid var(--line);border-radius:14px;
+  padding:1.4rem;flex:1;margin-top:.5rem;
+  transition:border-color .2s;
+}
+.road-item:hover .road-content{border-color:rgba(0,200,245,0.2);}
+.road-content h3{font-size:.95rem;font-weight:700;margin-bottom:.4rem;}
+.road-content p{font-size:.8rem;color:var(--muted);line-height:1.7;}
+.road-phase{
+  display:inline-block;font-size:.68rem;font-weight:700;
+  background:rgba(0,200,245,0.1);color:var(--blue);
+  border-radius:50px;padding:.2rem .7rem;margin-bottom:.6rem;
+}
+
+/* ── DESIGNER CARD ── */
+.designer{background:var(--bg2);}
+.designer-wrap{
+  background:var(--surf);border:1px solid var(--line);border-radius:24px;
+  overflow:hidden;
+}
+.designer-header{
+  padding:2.5rem;
+  background:linear-gradient(135deg,rgba(0,80,120,0.3),rgba(0,30,50,0.5));
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:2rem;
+}
+.designer-avatar{
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue2),var(--blue3));
+  border:3px solid rgba(0,200,245,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;font-weight:900;color:#fff;
+  box-shadow:0 0 30px rgba(0,200,245,0.2);
+  flex-shrink:0;
+}
+.designer-intro h2{font-size:1.5rem;font-weight:900;margin-bottom:.3rem;}
+.designer-intro .role{font-size:.82rem;color:var(--blue);font-weight:500;margin-bottom:.6rem;}
+.designer-intro .affil{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:.4rem;}
+.badge-dsg{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(0,200,245,0.1);border:1px solid rgba(0,200,245,0.2);
+  color:var(--blue);border-radius:50px;padding:.3rem .9rem;font-size:.72rem;font-weight:600;
+  margin-top:.5rem;
+}
+
+/* form info grid */
+.info-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.info-row{
+  display:contents;
+}
+.info-cell{
+  padding:1.1rem 1.5rem;
+  border-bottom:1px solid var(--line);
+  border-left:1px solid var(--line);
+  transition:background .2s;
+}
+.info-cell:hover{background:rgba(0,200,245,0.03);}
+.info-cell:nth-child(3n){border-left:none;}
+.info-label{font-size:.68rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem;}
+.info-value{font-size:.88rem;font-weight:500;color:var(--text);}
+.info-value.accent{color:var(--blue);}
+.info-value.gold{color:var(--gold);}
+
+/* work info */
+.work-section{padding:1.5rem;background:rgba(0,200,245,0.02);}
+.work-title{font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem;}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.work-field{padding:1rem;background:var(--surf2);border:1px solid var(--line);border-radius:10px;}
+.work-field.full{grid-column:1/-1;}
+.wf-label{font-size:.68rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem;}
+.wf-value{font-size:.88rem;color:var(--text);line-height:1.6;}
+.wf-value.big{font-size:1rem;font-weight:700;color:var(--blue);}
+
+/* legal note */
+.legal-note{
+  padding:1.2rem 1.5rem;
+  border-top:1px solid var(--line);
+  display:flex;gap:.8rem;align-items:flex-start;
+}
+.legal-note .ln-icon{font-size:1.1rem;flex-shrink:0;margin-top:.1rem;}
+.legal-note p{font-size:.75rem;color:var(--muted);line-height:1.7;}
+
+/* ── TEAM / CONTACT CTA ── */
+.cta-sec{text-align:center;}
+.cta-box{
+  background:var(--surf);border:1px solid var(--line);border-radius:24px;
+  padding:4rem 2rem;position:relative;overflow:hidden;
+}
+.cta-box::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);width:500px;height:300px;
+  background:radial-gradient(ellipse,rgba(0,80,120,0.3),transparent);
+  pointer-events:none;
+}
+.cta-box h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;margin-bottom:.8rem;position:relative;}
+.cta-box p{color:var(--muted);max-width:480px;margin:0 auto 2rem;line-height:1.8;font-size:.9rem;position:relative;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-p{
+  display:flex;align-items:center;gap:.5rem;
+  background:linear-gradient(135deg,var(--blue2),var(--blue3));
+  color:#fff;border:none;padding:.9rem 2rem;border-radius:8px;
+  font-family:inherit;font-size:.9rem;font-weight:700;cursor:none;
+  box-shadow:0 4px 24px rgba(0,151,204,0.4);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,200,245,0.4);}
+.btn-s{
+  display:flex;align-items:center;gap:.5rem;
+  background:transparent;color:var(--text);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:.9rem 2rem;border-radius:8px;
+  font-family:inherit;font-size:.9rem;cursor:none;
+  transition:border-color .2s,background .2s;
+}
+.btn-s:hover{border-color:rgba(0,200,245,0.3);background:rgba(0,200,245,0.05);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg2);border-top:1px solid var(--line);
+  padding:2.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.fl{font-size:.85rem;font-weight:700;}
+.fl span{color:var(--blue);}
+.fc{font-size:.73rem;color:var(--muted2);}
+.fb{background:rgba(0,200,245,0.08);border:1px solid rgba(0,200,245,0.15);color:var(--blue);border-radius:6px;padding:.25rem .7rem;font-size:.7rem;}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+.rv.ok{opacity:1;transform:none;}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}.rv.d4{transition-delay:.4s;}.rv.d5{transition-delay:.5s;}
+
+@keyframes fup{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .what-grid,.aud-grid,.info-grid,.work-grid{grid-template-columns:1fr;}
+  .goals-grid{grid-template-columns:1fr 1fr;}
+  .info-cell{border-left:none;}
+  nav .nav-links{display:none;}
+  .ph-cards{flex-direction:column;}
+  .ph-card+.ph-card{border-right:none;border-top:1px solid var(--line);}
+  .designer-header{flex-direction:column;text-align:center;}
+}
+@media(max-width:600px){
+  .sec{padding:4rem 1.5rem;}
+  nav{padding:1rem 1.5rem;}
+  .goals-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-r"></div>
+<div id="sp"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo">
+    <div class="logo-mark">
+      <img src="./photo24423565914.jpg"; style="border-radius:25%; width: 43px; height: 30px;"/>
+    </div>
+    <div>
+      <div class="logo-text">رشدینو</div>
+      <div class="logo-sub">رسانه ورزشی دانشجومعلمان</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">درباره</a></li>
+    <li><a href="#goals">اهداف</a></li>
+    <li><a href="#audience">مخاطبان</a></li>
+    <li><a href="#roadmap">مسیر رشد</a></li>
+    <li><a href="#designer" class="act">طراح</a></li>
+  </ul>
+  <a href="index.html" target="_blank">
+  <button class="nav-btn">🏃 برو به سایت اصلی</button>
+  </a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="ph-bg"></div>
+  <div class="ph-grid"></div>
+  <div class="ph-ring"></div>
+
+  <span class="ph-badge">رسانه فرهنگی‌ـ‌ورزشی | دانشگاه فرهنگیان ۱۴۰۴</span>
+  <h1 class="ph-title">
+    <span class="name">رشدینو</span>
+  </h1>
+  <p class="ph-tag">ROSHDINO — رسانه رشد، سلامت و نشاط دانشجومعلمان</p>
+
+  <div class="ph-cards">
+    <div class="ph-card">
+      <div class="val">۵</div>
+      <div class="lbl">بخش تخصصی</div>
+    </div>
+    <div class="ph-card">
+      <div class="val">۱۴۰۴</div>
+      <div class="lbl">سال راه‌اندازی</div>
+    </div>
+    <div class="ph-card">
+      <div class="val">۱۰۰٪</div>
+      <div class="lbl">محتوای ایرانی</div>
+    </div>
+    <div class="ph-card">
+      <div class="val">رایگان</div>
+      <div class="lbl">دسترسی برای همه</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS ROSHDINO -->
+<section class="sec what" id="about">
+  <div class="inner">
+    <div class="what-grid">
+      <div class="what-text">
+        <div class="stag rv">معرفی رشدینو</div>
+        <h2 class="st rv">رشدینو <em>چیست؟</em></h2>
+        <p class="rv d1">
+          <strong>رشدینو</strong> یک رسانه دیجیتال تخصصی است که با هدف ترویج، آموزش و نهادینه‌سازی فرهنگ ورزش و سبک زندگی سالم در میان دانشجومعلمان دانشگاه فرهنگیان طراحی و تولید شده است.
+        </p>
+        <p class="rv d2">
+          نام «رشدینو» از ترکیب دو واژه «رشد» و «نو» ساخته شده است؛ رشد جسمی، ذهنی و حرفه‌ای دانشجومعلم، و نو به معنای رویکردهای نوآورانه در آموزش ورزش با بهره‌گیری از فناوری‌های دیجیتال.
+        </p>
+        <p class="rv d3">
+          این سایت در راستای جشنواره طراحی رسانه‌های فرهنگی‌ـ‌ورزشی دانشگاه فرهنگیان (سال ۱۴۰۴) و با هدف کمک به تحقق شعار «معلم سالم، ایران سالم‌تر» طراحی شده است.
+        </p>
+      </div>
+      <div class="what-visual rv d2">
+        <div class="wv-item">
+          <div class="wv-icon">🎯</div>
+          <div class="wv-info">
+            <h4>هدف اصلی</h4>
+            <p>ترویج سبک زندگی فعال در دانشگاه‌های فرهنگیان سراسر کشور</p>
+          </div>
+        </div>
+        <div class="wv-item">
+          <div class="wv-icon">📱</div>
+          <div class="wv-info">
+            <h4>رسانه دیجیتال</h4>
+            <p>محتوای علمی، تعاملی و کاربردی در بستر وب</p>
+          </div>
+        </div>
+        <div class="wv-item">
+          <div class="wv-icon">🏛️</div>
+          <div class="wv-info">
+            <h4>منطبق با ارزش‌ها</h4>
+            <p>کاملاً همسو با ارزش‌های ایرانی‌ـ‌اسلامی و مأموریت تربیتی دانشگاه</p>
+          </div>
+        </div>
+        <div class="wv-item">
+          <div class="wv-icon">🔬</div>
+          <div class="wv-info">
+            <h4>مبتنی بر علم</h4>
+            <p>تمام محتوا با استناد به منابع علمی معتبر تولید می‌شود</p>
+          </div>
+        </div>
+        <div class="wv-item">
+          <div class="wv-icon">🤝</div>
+          <div class="wv-info">
+            <h4>دانشجومحور</h4>
+            <p>طراحی‌شده توسط دانشجومعلم برای دانشجومعلمان</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section class="sec" id="goals">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:1rem;">
+      <div class="stag rv">اهداف رشدینو</div>
+      <h2 class="st rv" style="text-align:center;">چرا رشدینو <em>مهم است؟</em></h2>
+      <p class="sdesc rv" style="margin:0 auto;">رشدینو با تمرکز بر این اهداف اصلی، به شکل‌دهی نسل سالم معلمان کمک می‌کند</p>
+    </div>
+    <div class="goals-grid">
+      <div class="goal-card rv d1">
+        <div class="gc-num">۰۱</div>
+        <div class="gc-title">آموزش ورزش علمی</div>
+        <div class="gc-body">ارائه محتوای آموزشی مبتنی بر علم تربیت‌بدنی، فیزیولوژی ورزشی و تغذیه ورزشی به زبان ساده و قابل‌فهم</div>
+      </div>
+      <div class="goal-card rv d2">
+        <div class="gc-num">۰۲</div>
+        <div class="gc-title">ترویج سبک زندگی فعال</div>
+        <div class="gc-body">نهادینه‌سازی عادت ورزش روزانه در برنامه زندگی دانشجومعلمان از طریق محتوای انگیزشی و عملی</div>
+      </div>
+      <div class="goal-card rv d3">
+        <div class="gc-num">۰۳</div>
+        <div class="gc-title">ورزش بدون تجهیزات</div>
+        <div class="gc-body">معرفی تمرینات خوابگاهی و ارزان‌قیمت که دانشجو در هر شرایطی و بدون سالن ورزشی اجرا کند</div>
+      </div>
+      <div class="goal-card rv d1">
+        <div class="gc-num">۰۴</div>
+        <div class="gc-title">سلامت روان دانشجو</div>
+        <div class="gc-body">کمک به کاهش استرس تحصیلی، بهبود خواب و افزایش شادابی از طریق راهکارهای ورزشی مبتنی بر روان‌شناسی</div>
+      </div>
+      <div class="goal-card rv d2">
+        <div class="gc-num">۰۵</div>
+        <div class="gc-title">آمادگی حرفه‌ای معلم</div>
+        <div class="gc-body">کمک به دانشجومعلمان برای کسب مهارت‌های تدریس تربیت‌بدنی و انتقال فرهنگ ورزش به دانش‌آموزان</div>
+      </div>
+      <div class="goal-card rv d3">
+        <div class="gc-num">۰۶</div>
+        <div class="gc-title">فناوری در خدمت ورزش</div>
+        <div class="gc-body">بهره‌گیری از ابزارهای تعاملی دیجیتال (آزمون، تایمر، ماشین‌حساب) برای جذاب‌تر کردن یادگیری ورزش</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="sec aud" id="audience">
+  <div class="inner">
+    <div class="stag rv">مخاطبان هدف</div>
+    <h2 class="st rv">رشدینو برای <em>چه کسانی</em> است؟</h2>
+    <div class="aud-grid">
+      <div class="aud-card rv d1">
+        <div class="aud-icon">🎓</div>
+        <div class="aud-info">
+          <h3>دانشجومعلمان کارشناسی</h3>
+          <p>دانشجویان پیوسته و ناپیوسته دانشگاه فرهنگیان که به دنبال تعادل بین تحصیل و سلامت جسمی هستند.</p>
+        </div>
+      </div>
+      <div class="aud-card rv d2">
+        <div class="aud-icon">📖</div>
+        <div class="aud-info">
+          <h3>دانشجومعلمان ارشد</h3>
+          <p>دانشجویان تحصیلات تکمیلی که نیاز به برنامه ورزشی هوشمندانه‌تر با فشار تحصیلی بالا دارند.</p>
+        </div>
+      </div>
+      <div class="aud-card rv d3">
+        <div class="aud-icon">🏃</div>
+        <div class="aud-info">
+          <h3>علاقه‌مندان مبتدی</h3>
+          <p>افرادی که تازه می‌خواهند ورزش را شروع کنند و نیاز به راهنمایی علمی و گام‌به‌گام دارند.</p>
+        </div>
+      </div>
+      <div class="aud-card rv d4">
+        <div class="aud-icon">🏫</div>
+        <div class="aud-info">
+          <h3>مربیان و استادان</h3>
+          <p>اعضای هیأت علمی و مربیان تربیت‌بدنی که به دنبال منابع آموزشی دیجیتال برای دانشجویان هستند.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="sec" id="roadmap">
+  <div class="inner">
+    <div class="stag rv">مسیر رشد</div>
+    <h2 class="st rv">رشدینو <em>به کجا می‌رود؟</em></h2>
+    <p class="sdesc rv">برنامه توسعه رشدینو در چهار فاز اجرا می‌شود</p>
+
+    <div class="road-wrap" style="margin-top:3rem;">
+      <div class="road-line"></div>
+
+      <div class="road-item rv d1">
+        <div class="road-dot">🌱</div>
+        <div class="road-content">
+          <div class="road-phase">فاز ۱ — راه‌اندازی</div>
+          <h3>طراحی و انتشار سایت اولیه</h3>
+          <p>راه‌اندازی سایت اصلی با بخش‌های آموزشی ورزشی، ابزارهای تعاملی (BMI، تایمر، آزمون) و محتوای علمی معتبر. هدف: جذب اولین کاربران از دانشگاه‌های فرهنگیان استان.</p>
+        </div>
+      </div>
+
+      <div class="road-item rv d2">
+        <div class="road-dot">📈</div>
+        <div class="road-content">
+          <div class="road-phase">فاز ۲ — رشد</div>
+          <h3>تولید محتوای ویدیویی و بلاگ</h3>
+          <p>اضافه کردن آموزش‌های ویدیویی ورزشی، مقالات تخصصی تربیت‌بدنی و ایجاد کانال در شبکه‌های اجتماعی با هدف افزایش تعامل به ۵۰+ عضو فعال.</p>
+        </div>
+      </div>
+
+      <div class="road-item rv d3">
+        <div class="road-dot">🤝</div>
+        <div class="road-content">
+          <div class="road-phase">فاز ۳ — گسترش</div>
+          <h3>همکاری با سایر پردیس‌ها</h3>
+          <p>گسترش به سطح کشوری از طریق همکاری با مسئولین تربیت‌بدنی سایر استان‌ها، دریافت محتوا از دانشجومعلمان سراسر ایران و ایجاد شبکه ورزشی دانشگاه‌های فرهنگیان.</p>
+        </div>
+      </div>
+
+      <div class="road-item rv d4">
+        <div class="road-dot">🚀</div>
+        <div class="road-content">
+          <div class="road-phase">فاز ۴ — تثبیت</div>
+          <h3>اپلیکیشن موبایل و محتوای تعاملی پیشرفته</h3>
+          <p>توسعه اپلیکیشن اندروید و iOS برای ردیابی تمرینات، برنامه‌ریزی ورزشی شخصی و جامعه آنلاین دانشجومعلمان ورزشکار.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGNER -->
+<section class="sec designer" id="designer">
+  <div class="inner">
+    <div class="stag rv">مشخصات طراح</div>
+    <h2 class="st rv">معرفی <em>طراح سایت</em></h2>
+    <p class="sdesc rv" style="margin-bottom:2.5rem;">اطلاعات طراح مطابق فرم اطلاعات طراح جشنواره طراحی رسانه‌های فرهنگی‌ـ‌ورزشی ۱۴۰۴</p>
+
+    <div class="designer-wrap rv">
+      <!-- header -->
+      <div class="designer-header">
+        <div class="designer-avatar">ع</div>
+        <div class="designer-intro">
+          <h2>علیرضا امجدیان</h2>
+          <div class="role">🎨 طراح سایت رشدینو</div>
+          <div class="affil">🏛️ دانشگاه فرهنگیان — مرکز اموزش عالی شیخ مرتضی انصاری دزفول </div>
+          <div style="margin-top:.8rem;display:flex;gap:.6rem;flex-wrap:wrap;">
+            <span class="badge-dsg">🏆 شرکت‌کننده جشنواره ۱۴۰۴</span>
+            <span class="badge-dsg">💻 طراح وب</span>
+            <span class="badge-dsg">🎓 دانشجومعلم</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- info grid — فرم اطلاعات طراح -->
+      <div class="info-grid">
+        <div class="info-cell">
+          <div class="info-label">نام</div>
+          <div class="info-value accent">علیرضا</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">نام خانوادگی</div>
+          <div class="info-value">امجدیان</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">نام پدر</div>
+          <div class="info-value">علی</div>
+        </div>
+
+        <div class="info-cell">
+          <div class="info-label">جنسیت</div>
+          <div class="info-value">مرد</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">پردیس / مرکز</div>
+          <div class="info-value">رسول اکرم /مرکز اموزش عالی شیخ مرتضی انصاری دزفول </div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">رشته تحصیلی</div>
+          <div class="info-value">امورتربیتی</div>
+        </div>
+
+        <div class="info-cell">
+          <div class="info-label">سال ورود</div>
+          <div class="info-value">1403</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">وضعیت تأهل</div>
+          <div class="info-value">مجرد</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">تاریخ تولد</div>
+          <div class="info-value"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+
+        <div class="info-cell">
+          <div class="info-label">کد ملی</div>
+          <div class="info-value"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">شماره شناسنامه</div>
+          <div class="info-value"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">محل تولد</div>
+          <div class="info-value"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+
+        <div class="info-cell">
+          <div class="info-label">شماره دانشجویی</div>
+          <div class="info-value accent"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">پست الکترونیک</div>
+          <div class="info-value">aliamjadian.3333@gmail.com</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">شماره همراه</div>
+          <div class="info-value">09944546917</div>
+        </div>
+
+        <div class="info-cell">
+          <div class="info-label">شماره شبا</div>
+          <div class="info-value"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">نام بانک</div>
+          <div class="info-value"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+        <div class="info-cell">
+          <div class="info-label">شماره تلفن ثابت</div>
+          <div class="info-value"> در فایل پی دی اف  جدا ارسال شده است برای ذی ربط</div>
+        </div>
+
+        <div class="info-cell" style="grid-column:1/-1;border-left:none;">
+          <div class="info-label">آدرس پستی منزل</div>
+          <div class="info-value">استان .................. — شهر .................. — ..................</div>
+        </div>
+      </div>
+
+      <!-- work info — فرم اثر -->
+      <div class="work-section">
+        <div class="work-title">// اطلاعات اثر</div>
+        <div class="work-grid">
+          <div class="work-field">
+            <div class="wf-label">بخش اثر</div>
+            <div class="wf-value big">طراحی سایت</div>
+          </div>
+          <div class="work-field">
+            <div class="wf-label">عنوان اثر</div>
+            <div class="wf-value big">رشدینو</div>
+          </div>
+          <div class="work-field">
+            <div class="wf-label">تاریخ پخش اثر</div>
+            <div class="wf-value">اسفند1404 </div>
+          </div>
+          <div class="work-field">
+            <div class="wf-label">مشخصات عامل تولید</div>
+            <div class="wf-value">علیرضاامجدیان | دانشجومعلم دانشگاه فرهنگیان</div>
+          </div>
+          <div class="work-field full">
+            <div class="wf-label">خلاصه موضوع اثر</div>
+            <div class="wf-value">رشدینو یک رسانه دیجیتال تخصصی ورزشی است که با هدف ترویج، آموزش و نهادینه‌سازی فرهنگ ورزش و سبک زندگی سالم در میان دانشجومعلمان دانشگاه فرهنگیان طراحی شده است. این سایت شامل بخش‌های آموزشی، ابزارهای تعاملی (ماشین‌حساب BMI، تایمر تمرین، آزمون علمی)، محتوای علمی ورزشی و معرفی برنامه‌های ورزش خوابگاهی می‌باشد.</div>
+          </div>
+          <div class="work-field full">
+            <div class="wf-label">منابع علمی مورد استفاده</div>
+            <div class="wf-value">
+              ۱. سازمان بهداشت جهانی (WHO) — دستورالعمل‌های فعالیت جسمانی ۲۰۲۰<br/>
+              ۲. American College of Sports Medicine — راهنمای تمرین برای سلامت<br/>
+              ۳. مجله علوم ورزشی و تربیت‌بدنی — دانشگاه تهران<br/>
+              ۴. پایگاه PubMed — مطالعات فعالیت بدنی و سلامت روان (۲۰۲۰-۲۰۲۳)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- legal -->
+      <div class="legal-note">
+        <span class="ln-icon">⚖️</span>
+        <p>تمامی حقوق مادی و معنوی این اثر متعلق به طراح بوده و اثر کاملاً توسط ارائه‌دهنده تولید شده است. هرگونه حق چاپ، بهره‌برداری یا اصلاح آثار ارسالی با اداره کل تربیت بدنی دانشگاه فرهنگیان می‌باشد. کلیه محتوا منطبق با ارزش‌های ایرانی‌ـ‌اسلامی و مأموریت تربیتی دانشگاه فرهنگیان است.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta-sec">
+  <div class="inner">
+    <div class="cta-box rv">
+      <h2>رشدینو را <em>کاوش کن</em> 🚀</h2>
+      <p>برو به سایت اصلی و از ابزارهای ورزشی، محتوای علمی و آزمون‌های تعاملی استفاده کن</p>
+      <div class="cta-btns">
+        <a href="index.html" target="_blank">
+        <button class="btn-p">🏃 سایت اصلی رشدینو</button>
+        </a>
+        <button id="ood" class="btn-s">📧 تماس با طراح</button>
+
+<script>
+document.getElementById("ood").addEventListener("click", function() {
+    Swal.fire({
+        title: "09944546917",
+        text: " شماره تماس",
+        icon: "success",
+        confirmButtonText: "باشه",
+        customClass: {
+            popup: 'green-border-alert'
+        }
+    });
+});
+</script>
+
+<style>
+.green-border-alert {
+    border-left: 6px solid #28a745 !important;
+    border-radius: 8px !important;
+}
+</style>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fl">رشدینو | <span>دانشگاه فرهنگیان</span></div>
+  <span class="fc">طراح: علیرضا امجدیان | جشنواره رسانه‌های فرهنگی‌ـ‌ورزشی ۱۴۰۴</span>
+  <span class="fb">سایت رشدینو</span>
+</footer>
+
+<script>
+// cursor
+const cur=document.getElementById('cur'),cr=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+(function anim(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(anim);})();
+document.querySelectorAll('button,a').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';});
+});
+// scroll progress + nav
+window.addEventListener('scroll',()=>{
+  document.getElementById('sp').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
+  document.getElementById('nav').classList.toggle('sc',window.scrollY>60);
+});
+// reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('ok');obs.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
